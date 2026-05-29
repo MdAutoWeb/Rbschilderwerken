@@ -1,65 +1,464 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WaFloat from "@/components/WaFloat";
+import BeforeAfter from "@/components/BeforeAfter";
+import ProjectImage from "@/components/ProjectImage";
+import HeroFeatureRotator from "@/components/HeroFeatureRotator";
+import { IMG } from "@/lib/assets";
+
+const HERO_PHOTOS = [
+  { src: IMG.renovatie.badkamer, alt: "Badkamer na renovatie, RB Schilderwerken" },
+  { src: IMG.renovatie.living, alt: "Living na schilderwerk, RB Schilderwerken" },
+  { src: IMG.voorNa.badkamerNa, alt: "Badkamer renovatie, RB Schilderwerken" },
+  { src: IMG.renovatie.keuken, alt: "Keuken na schilderwerk, RB Schilderwerken" },
+  { src: IMG.renovatie.traphal, alt: "Traphal na renovatie, RB Schilderwerken" },
+];
+
+export const metadata: Metadata = {
+  title: "Schilder Torhout & West-Vlaanderen",
+  description:
+    "RB Schilderwerken: vakkundige schilder in Torhout en heel West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. 15 jaar ervaring, gratis offerte.",
+  openGraph: {
+    title: "RB Schilderwerken, schilder in Torhout & West-Vlaanderen",
+    description:
+      "Vakkundig schilderwerk voor binnen & buiten. Nieuwbouw & renovatie. Actief in Torhout en heel West-Vlaanderen. Gratis offerte binnen 48 uur.",
+    url: "/",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Navbar active="home" />
+
+      {/* HERO */}
+      <section className="sec-white hero-section">
+        <div className="container hero-split">
+          <div className="reveal hero-split-copy">
+            <span className="eyebrow">Schilder in Torhout, sinds 2010</span>
+            <h1 className="display">
+              Schilderwerken
+              <br />
+              waar <span className="accent">kwaliteit</span>
+              <br />
+              voorop staat.
+            </h1>
+            <p className="lede hero-split-lede">
+              Binnen en buiten, nieuwbouw en renovatie, heel West-Vlaanderen.
+              15&nbsp;jaar ervaring in een vak waar de afwerking telt.
+            </p>
+            <div className="hero-btns">
+              <Link className="btn btn-gold" href="/contact">
+                Vraag gratis offerte
+                <span className="arrow" aria-hidden="true"></span>
+              </Link>
+              <Link className="btn btn-outline-dark" href="/realisaties">
+                Bekijk realisaties
+              </Link>
+            </div>
+            <p className="hero-split-caption">
+              <span>Eigen realisaties in West-Vlaanderen</span>
+              <Link href="/realisaties">Bekijk meer werk →</Link>
+            </p>
+          </div>
+
+          <figure className="hero-oval-wrap" aria-label="Realisaties">
+            <div className="hero-oval reveal d-1">
+              <HeroFeatureRotator slides={HERO_PHOTOS} />
+            </div>
+          </figure>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      {/* STATS STRIP */}
+      <section className="sec-dark on-dark" style={{ padding: 0 }}>
+        <div
+          className="container"
+          style={{ paddingTop: 56, paddingBottom: 56 }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: 24,
+              alignItems: "center",
+            }}
+            className="stats-grid"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="stat reveal">
+              <div
+                style={{
+                  fontSize: "clamp(40px, 4.5vw, 64px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.04em",
+                  color: "var(--gold-light)",
+                  lineHeight: 1,
+                }}
+              >
+                15
+              </div>
+              <div
+                style={{
+                  marginTop: 8,
+                  fontSize: 12,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--cream)",
+                  opacity: 0.7,
+                }}
+              >
+                jaar ervaring
+              </div>
+            </div>
+            <div className="stat reveal d-1">
+              <div
+                style={{
+                  fontSize: "clamp(20px, 2vw, 26px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  color: "var(--cream)",
+                  lineHeight: 1.1,
+                }}
+              >
+                Binnen
+                <br />
+                &amp; buiten
+              </div>
+              <div
+                style={{
+                  marginTop: 8,
+                  fontSize: 12,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--cream)",
+                  opacity: 0.6,
+                }}
+              >
+                elk seizoen
+              </div>
+            </div>
+            <div className="stat reveal d-2">
+              <div
+                style={{
+                  fontSize: "clamp(20px, 2vw, 26px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  color: "var(--cream)",
+                  lineHeight: 1.1,
+                }}
+              >
+                Nieuwbouw
+                <br />
+                &amp; renovatie
+              </div>
+              <div
+                style={{
+                  marginTop: 8,
+                  fontSize: 12,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--cream)",
+                  opacity: 0.6,
+                }}
+              >
+                van A tot Z
+              </div>
+            </div>
+            <div className="stat reveal d-3">
+              <div
+                style={{
+                  fontSize: "clamp(20px, 2vw, 26px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  color: "var(--gold-light)",
+                  lineHeight: 1.1,
+                }}
+              >
+                Torhout
+                <br />
+                &amp; omstreken
+              </div>
+              <div
+                style={{
+                  marginTop: 8,
+                  fontSize: 12,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "var(--cream)",
+                  opacity: 0.6,
+                }}
+              >
+                West-Vlaanderen
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* DIENSTEN */}
+      <section className="sec-white">
+        <div className="container">
+          <div className="sec-head">
+            <span className="eyebrow">Diensten</span>
+            <h2 className="h2">
+              Vier disciplines,
+              <br />
+              één hand vakwerk.
+            </h2>
+            <p className="lede">
+              Van een muurtje in de living tot een volledige gevel: elk project
+              krijgt dezelfde voorbereiding en afwerking.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: 16,
+            }}
+            className="services-grid"
+          >
+            <article className="service reveal">
+              <span className="srv-num">01</span>
+              <h3 className="srv-title">Binnen­schilderwerk</h3>
+              <p className="srv-body">
+                Muren, plafonds, deuren en kasten, strak afgeplakt en dampdicht
+                onderlegd, in twee tot drie lagen opgebouwd.
+              </p>
+              <span className="srv-tags">Latex, lak, plafonds, deuren</span>
+            </article>
+            <article className="service reveal d-1">
+              <span className="srv-num">02</span>
+              <h3 className="srv-title">Buiten­schilderwerk</h3>
+              <p className="srv-body">
+                Gevels, ramen, dakgoten en houtwerk. Volledig schuren, ontvetten
+                en weerbestendig afwerken.
+              </p>
+              <span className="srv-tags">
+                Gevels, ramen, houtwerk, dakgoten
+              </span>
+            </article>
+            <article className="service reveal d-2">
+              <span className="srv-num">03</span>
+              <h3 className="srv-title">Behang­werken</h3>
+              <p className="srv-body">
+                Van structuurbehang tot fotobehang, met onzichtbare naden en
+                kaarsrechte patronen.
+              </p>
+              <span className="srv-tags">
+                Vlies, vinyl, fotobehang, texturen
+              </span>
+            </article>
+            <article className="service reveal d-3">
+              <span className="srv-num">04</span>
+              <h3 className="srv-title">Renovatie &amp; nieuwbouw</h3>
+              <p className="srv-body">
+                Volledige afwerking voor aannemers en particulieren: plamuren,
+                schuren, schilderen, opgeleverd binnen planning.
+              </p>
+              <span className="srv-tags">
+                Plamuur, schuren, voorstrijken, oplevering
+              </span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* REALISATIES PREVIEW */}
+      <section className="sec-cream">
+        <div className="container">
+          <div className="sec-head row">
+            <div className="stack">
+              <span className="eyebrow">Eerder werk</span>
+              <h2 className="h2">
+                Van verweerde gevel
+                <br />
+                tot stralende interieurs.
+              </h2>
+            </div>
+            <Link className="btn btn-outline-dark btn-sm" href="/realisaties">
+              Bekijk alle realisaties{" "}
+              <span className="arrow" aria-hidden="true"></span>
+            </Link>
+          </div>
+
+          <div className="work-grid reveal">
+            <article className="work-card">
+              <BeforeAfter
+                style={{
+                  aspectRatio: "4/5",
+                  boxShadow: "none",
+                  borderRadius: 0,
+                }}
+                beforeContent={
+                  <ProjectImage
+                    src={IMG.voorNa.badkamerVoor}
+                    alt="Badkamer vóór renovatie"
+                    variant="before"
+                  />
+                }
+                afterContent={
+                  <ProjectImage
+                    src={IMG.voorNa.badkamerNa}
+                    alt="Badkamer na renovatie"
+                    variant="after"
+                  />
+                }
+                ariaLabel="Vergelijk badkamer voor en na"
+              />
+              <div className="work-meta">
+                <span className="label">Renovatie</span>
+                <span className="title">Badkamer</span>
+                <span className="loc">Voor &amp; na</span>
+              </div>
+            </article>
+
+            <article className="work-card">
+              <BeforeAfter
+                style={{
+                  aspectRatio: "4/5",
+                  boxShadow: "none",
+                  borderRadius: 0,
+                }}
+                beforeContent={
+                  <ProjectImage
+                    src={IMG.voorNa.livingVoor}
+                    alt="Living vóór renovatie"
+                    variant="before"
+                  />
+                }
+                afterContent={
+                  <ProjectImage
+                    src={IMG.voorNa.livingNa}
+                    alt="Living na renovatie"
+                    variant="after"
+                  />
+                }
+                ariaLabel="Vergelijk living voor en na"
+              />
+              <div className="work-meta">
+                <span className="label">Binnenschilderwerk</span>
+                <span className="title">Living</span>
+                <span className="loc">Voor &amp; na</span>
+              </div>
+            </article>
+
+            <article className="work-card">
+              <div className="work-single-img">
+                <Image
+                  src={IMG.renovatie.keuken}
+                  alt="Keuken na schilderwerk"
+                  fill
+                  sizes="(max-width: 800px) 100vw, 33vw"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="work-meta">
+                <span className="label">Binnenschilderwerk</span>
+                <span className="title">Keuken</span>
+                <span className="loc">West-Vlaanderen</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA BAND */}
+      <section className="sec-dark on-dark">
+        <div
+          className="container"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.3fr 1fr",
+            gap: 48,
+            alignItems: "center",
+          }}
+          id="cta-grid"
+        >
+          <div
+            className="reveal"
+            style={{ display: "flex", flexDirection: "column", gap: 22 }}
+          >
+            <span className="eyebrow on-dark">Aan de slag</span>
+            <h2 className="h2" style={{ color: "var(--cream)" }}>
+              Klaar voor een
+              <br />
+              <span
+                style={{
+                  color: "var(--gold-light)",
+                  fontStyle: "italic",
+                  fontWeight: 500,
+                }}
+              >
+                vakkundige
+              </span>{" "}
+              afwerking?
+            </h2>
+            <p className="lede">
+              Stuur een foto of beschrijving van uw project. U krijgt binnen
+              48&nbsp;uur een vrijblijvende offerte op maat.
+            </p>
+          </div>
+          <div
+            className="reveal d-1"
+            style={{ display: "flex", flexDirection: "column", gap: 12 }}
+          >
+            <a
+              className="btn btn-gold"
+              href="https://wa.me/32474271575"
+              target="_blank"
+              rel="noopener"
+              style={{ justifyContent: "space-between", padding: "18px 22px" }}
+            >
+              <span style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.4 2.9 1.3 2.9.9 3.4.8.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.1c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.4 1.1 1.1-3.3-.2-.4C3.6 14.6 3 13.4 3 12c0-4.9 4.1-9 9-9s9 4.1 9 9-4.1 9.1-9 9.1z" />
+                </svg>
+                Stuur een WhatsApp
+              </span>
+              <span className="arrow" aria-hidden="true"></span>
+            </a>
+            <Link
+              className="btn btn-outline-light"
+              href="/contact"
+              style={{ justifyContent: "space-between", padding: "18px 22px" }}
+            >
+              Vraag offerte per mail
+              <span className="arrow" aria-hidden="true"></span>
+            </Link>
+            <p
+              style={{
+                fontSize: 12,
+                color: "rgba(245,236,220,0.5)",
+                letterSpacing: "0.08em",
+                margin: "8px 0 0",
+              }}
+            >
+              +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75,
+              rb.schilderwerkenn@gmail.com
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        @media (max-width: 800px) {
+          #cta-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
+      <Footer />
+      <WaFloat />
+    </>
   );
 }
