@@ -10,7 +10,14 @@ export default function Navbar({ active }: NavbarProps) {
     <header className="nav">
       <div className="container nav-inner">
         <Link className="nav-brand" href="/" aria-label="RB Schilderwerken, naar home">
-          <Image src="/assets/logo.png" alt="RB Schilderwerken" width={77} height={64} priority />
+          <Image
+            src="/assets/logo.png?v=2"
+            alt="RB Schilderwerken"
+            width={88}
+            height={88}
+            priority
+            unoptimized
+          />
         </Link>
         <nav className="nav-links" aria-label="Hoofdnavigatie">
           <Link className={`nav-link${active === "home" ? " is-active" : ""}`} href="/">Home</Link>

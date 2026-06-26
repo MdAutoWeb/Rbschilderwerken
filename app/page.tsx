@@ -6,21 +6,13 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import BeforeAfter from "@/components/BeforeAfter";
 import ProjectImage from "@/components/ProjectImage";
-import HeroFeatureRotator from "@/components/HeroFeatureRotator";
+import GalleryHero from "@/components/GalleryHero";
 import { IMG } from "@/lib/assets";
-
-const HERO_PHOTOS = [
-  { src: IMG.renovatie.badkamer, alt: "Badkamer na renovatie, RB Schilderwerken" },
-  { src: IMG.renovatie.living, alt: "Living na schilderwerk, RB Schilderwerken" },
-  { src: IMG.voorNa.badkamerNa, alt: "Badkamer renovatie, RB Schilderwerken" },
-  { src: IMG.renovatie.keuken, alt: "Keuken na schilderwerk, RB Schilderwerken" },
-  { src: IMG.renovatie.traphal, alt: "Traphal na renovatie, RB Schilderwerken" },
-];
 
 export const metadata: Metadata = {
   title: "Schilder Torhout & West-Vlaanderen",
   description:
-    "RB Schilderwerken: vakkundige schilder in Torhout en heel West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. 15 jaar ervaring, gratis offerte.",
+    "RB Schilderwerken: vakkundige schilder in Torhout en heel West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
   openGraph: {
     title: "RB Schilderwerken, schilder in Torhout & West-Vlaanderen",
     description:
@@ -38,7 +30,7 @@ export default function Home() {
       <section className="sec-white hero-section">
         <div className="container hero-split">
           <div className="reveal hero-split-copy">
-            <span className="eyebrow">Schilder in Torhout, sinds 2010</span>
+            <span className="eyebrow">Schilder in Torhout, sinds 2025</span>
             <h1 className="display">
               Schilderwerken
               <br />
@@ -48,7 +40,7 @@ export default function Home() {
             </h1>
             <p className="lede hero-split-lede">
               Binnen en buiten, nieuwbouw en renovatie, heel West-Vlaanderen.
-              15&nbsp;jaar ervaring in een vak waar de afwerking telt.
+              Vakmanschap waar de afwerking telt.
             </p>
             <div className="hero-btns">
               <Link className="btn btn-gold" href="/contact">
@@ -59,17 +51,11 @@ export default function Home() {
                 Bekijk realisaties
               </Link>
             </div>
-            <p className="hero-split-caption">
-              <span>Eigen realisaties in West-Vlaanderen</span>
-              <Link href="/realisaties">Bekijk meer werk →</Link>
-            </p>
           </div>
 
-          <figure className="hero-oval-wrap" aria-label="Realisaties">
-            <div className="hero-oval reveal d-1">
-              <HeroFeatureRotator slides={HERO_PHOTOS} />
-            </div>
-          </figure>
+          <div className="hero-accordion-wrap reveal d-1">
+            <GalleryHero />
+          </div>
         </div>
       </section>
 
@@ -98,19 +84,7 @@ export default function Home() {
                   lineHeight: 1,
                 }}
               >
-                15
-              </div>
-              <div
-                style={{
-                  marginTop: 8,
-                  fontSize: 12,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "var(--cream)",
-                  opacity: 0.7,
-                }}
-              >
-                jaar ervaring
+                2025
               </div>
             </div>
             <div className="stat reveal d-1">
@@ -127,18 +101,6 @@ export default function Home() {
                 <br />
                 &amp; buiten
               </div>
-              <div
-                style={{
-                  marginTop: 8,
-                  fontSize: 12,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "var(--cream)",
-                  opacity: 0.6,
-                }}
-              >
-                elk seizoen
-              </div>
             </div>
             <div className="stat reveal d-2">
               <div
@@ -154,18 +116,6 @@ export default function Home() {
                 <br />
                 &amp; renovatie
               </div>
-              <div
-                style={{
-                  marginTop: 8,
-                  fontSize: 12,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "var(--cream)",
-                  opacity: 0.6,
-                }}
-              >
-                van A tot Z
-              </div>
             </div>
             <div className="stat reveal d-3">
               <div
@@ -180,18 +130,6 @@ export default function Home() {
                 Torhout
                 <br />
                 &amp; omstreken
-              </div>
-              <div
-                style={{
-                  marginTop: 8,
-                  fontSize: 12,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "var(--cream)",
-                  opacity: 0.6,
-                }}
-              >
-                West-Vlaanderen
               </div>
             </div>
           </div>
@@ -310,11 +248,6 @@ export default function Home() {
                 }
                 ariaLabel="Vergelijk badkamer voor en na"
               />
-              <div className="work-meta">
-                <span className="label">Renovatie</span>
-                <span className="title">Badkamer</span>
-                <span className="loc">Voor &amp; na</span>
-              </div>
             </article>
 
             <article className="work-card">
@@ -340,11 +273,6 @@ export default function Home() {
                 }
                 ariaLabel="Vergelijk living voor en na"
               />
-              <div className="work-meta">
-                <span className="label">Binnenschilderwerk</span>
-                <span className="title">Living</span>
-                <span className="loc">Voor &amp; na</span>
-              </div>
             </article>
 
             <article className="work-card">
@@ -356,11 +284,6 @@ export default function Home() {
                   sizes="(max-width: 800px) 100vw, 33vw"
                   style={{ objectFit: "cover" }}
                 />
-              </div>
-              <div className="work-meta">
-                <span className="label">Binnenschilderwerk</span>
-                <span className="title">Keuken</span>
-                <span className="loc">West-Vlaanderen</span>
               </div>
             </article>
           </div>
@@ -445,7 +368,7 @@ export default function Home() {
               }}
             >
               +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75,
-              rb.schilderwerkenn@gmail.com
+              info@rbschilderwerken.be
             </p>
           </div>
         </div>

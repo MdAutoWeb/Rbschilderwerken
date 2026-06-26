@@ -4,15 +4,43 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(false);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      naam: formData.get("naam"),
+      email: formData.get("email"),
+      tel: formData.get("tel"),
+      type: formData.get("type"),
+      bericht: formData.get("bericht"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Verzenden mislukt");
+
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
     return (
-      <div style={{ padding: "32px", background: "var(--cream)", borderRadius: 2, borderTop: "3px solid var(--gold)" }}>
+      <div style={{ padding: "32px", background: "var(--cream)", borderRadius: 2, borderTop: "3px solid var(--gold-deep)" }}>
         <p style={{ fontSize: 18, fontWeight: 600, color: "var(--ink)" }}>Bedankt voor uw aanvraag!</p>
         <p style={{ color: "var(--ink-soft)", marginTop: 8 }}>We nemen binnen 48 uur contact met u op.</p>
       </div>
@@ -54,9 +82,15 @@ export default function ContactForm() {
         <textarea id="bericht" name="bericht" required placeholder="Beschrijf uw project: ruimtes, oppervlakte, gewenste timing…"></textarea>
       </div>
 
+      {error && (
+        <p className="note" style={{ color: "#b91c1c" }} role="alert">
+          Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons op +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75.
+        </p>
+      )}
+
       <div className="form-submit">
-        <button type="submit" className="btn btn-gold">
-          Verstuur aanvraag
+        <button type="submit" className="btn btn-gold" disabled={loading}>
+          {loading ? "Versturen…" : "Verstuur aanvraag"}
           <span className="arrow" aria-hidden="true"></span>
         </button>
         <span className="note">U krijgt antwoord binnen 48&nbsp;uur, zonder verplichtingen.</span>

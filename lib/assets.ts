@@ -1,5 +1,8 @@
 /** Publieke afbeeldingen — stabiele paden zonder spaties */
 export const IMG = {
+  buiten: {
+    gevelRamen: "/assets/buiten/gevel-ramen.jpeg",
+  },
   renovatie: {
     badkamer: "/assets/renovatie/badkamer.jpeg",
     living: "/assets/renovatie/living.jpeg",

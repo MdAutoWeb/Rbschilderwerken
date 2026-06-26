@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: "RB Schilderwerken, schilder in Torhout & West-Vlaanderen",
   },
   description:
-    "Vakkundige schilderwerken in Torhout en West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. 15 jaar ervaring, gratis offerte.",
+    "Vakkundige schilderwerken in Torhout en West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
   keywords: [
     "schilder Torhout",
     "schilderwerken West-Vlaanderen",
@@ -64,7 +64,7 @@ const localBusinessSchema = {
     "Vakkundige schilderwerken in Torhout en West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie.",
   url: SITE_URL,
   telephone: "+32474271575",
-  email: "rb.schilderwerkenn@gmail.com",
+  email: "info@rbschilderwerken.be",
   image: `${SITE_URL}/og.png`,
   logo: `${SITE_URL}/assets/logo.png`,
   address: {
@@ -96,6 +96,12 @@ const localBusinessSchema = {
   ],
   areaServed: [
     { "@type": "City", name: "Torhout" },
+    { "@type": "City", name: "Wijnendale" },
+    { "@type": "City", name: "Lichtervelde" },
+    { "@type": "City", name: "Kortemark" },
+    { "@type": "City", name: "Ichtegem" },
+    { "@type": "City", name: "Zedelgem" },
+    { "@type": "City", name: "Roeselare" },
     { "@type": "AdministrativeArea", name: "West-Vlaanderen" },
   ],
   hasOfferCatalog: {

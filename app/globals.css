@@ -3,9 +3,10 @@
 /* ─────────── Design tokens ─────────── */
 :root {
   --espresso: #1a0d02;
-  --espresso-2: #2a1a0a;
-  --gold: #c18c3c;
-  --gold-light: #e6b96a;
+  --espresso-deep: #110800;
+  --gold: #b68439;
+  --gold-light: #d4a14e;
+  --gold-deep: #9c6f1a;
   --cream: #f5ecdc;
   --cream-2: #efe4d0;
   --white: #ffffff;
@@ -73,7 +74,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  height: 80px;
+  height: 96px;
 }
 .nav-brand {
   display: flex;
@@ -83,7 +84,7 @@ button {
 }
 .nav-brand img {
   width: auto;
-  height: 64px;
+  height: 88px;
   object-fit: contain;
 }
 .nav-links {
@@ -116,14 +117,14 @@ button {
 }
 @media (max-width: 640px) {
   .nav-inner {
-    height: 72px;
+    height: 80px;
   }
   .nav-link {
     padding: 8px 8px;
     font-size: 13px;
   }
   .nav-brand img {
-    height: 52px;
+    height: 64px;
   }
   .nav-cta .btn-label-long {
     display: none;
@@ -434,7 +435,7 @@ footer {
 }
 .footer-brand img {
   width: auto;
-  height: 56px;
+  height: 76px;
   object-fit: contain;
   margin-bottom: 16px;
 }
@@ -463,6 +464,40 @@ footer {
     color 0.2s;
 }
 .footer-col a:hover {
+  opacity: 1;
+  color: var(--gold-light);
+}
+.footer-regios {
+  margin-top: 6px;
+}
+.footer-regios > summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-size: 14px;
+  color: var(--cream);
+  opacity: 0.78;
+  margin: 6px 0;
+  cursor: pointer;
+  list-style: none;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+}
+.footer-regios > summary::-webkit-details-marker {
+  display: none;
+}
+.footer-regios > summary::after {
+  content: "+";
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.7;
+}
+.footer-regios[open] > summary::after {
+  content: "−";
+}
+.footer-regios > summary:hover {
   opacity: 1;
   color: var(--gold-light);
 }
@@ -554,7 +589,7 @@ footer {
 /* ─────────── Home: Service cards ─────────── */
 .service {
   background: var(--white);
-  border: 1px solid var(--gold);
+  border: 1px solid var(--gold-deep);
   padding: 28px 26px 32px;
   display: flex;
   flex-direction: column;
@@ -731,6 +766,10 @@ footer {
   .hero-oval {
     height: min(300px, 82vw);
   }
+  .hero-accordion-wrap {
+    width: min(92vw, 480px);
+    height: clamp(300px, 55vw, 420px);
+  }
 }
 
 /* ─────────── Home: Work grid ─────────── */
@@ -821,7 +860,7 @@ footer {
   height: 140%;
   background: radial-gradient(
     ellipse at center,
-    rgba(193, 140, 60, 0.18),
+    rgba(182, 132, 57, 0.18),
     transparent 60%
   );
   pointer-events: none;
@@ -953,6 +992,18 @@ footer {
 }
 
 /* Per-project foto-afstemming — pas per realisatie aan via .project--{id} */
+.project--renovatie .ba {
+  aspect-ratio: 3 / 4;
+  min-height: 460px;
+}
+.project--gevel-ramen .single-img {
+  aspect-ratio: 9 / 16;
+  min-height: 460px;
+}
+.project--gevel-ramen .single-img img {
+  object-fit: cover;
+  object-position: center;
+}
 
 @media (max-width: 640px) {
   .projects {
@@ -1033,7 +1084,7 @@ footer {
   background:
     radial-gradient(
       ellipse 50% 70% at 80% 20%,
-      rgba(193, 140, 60, 0.2),
+      rgba(182, 132, 57, 0.2),
       transparent 60%
     ),
     radial-gradient(
@@ -1049,7 +1100,7 @@ footer {
 
 /* ─────────── Contact: WhatsApp card ─────────── */
 .wa-card {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-light));
   color: var(--espresso);
   border-radius: 4px;
   padding: clamp(28px, 4vw, 44px) clamp(28px, 4vw, 48px);
@@ -1057,7 +1108,7 @@ footer {
   grid-template-columns: 1fr auto;
   gap: 32px;
   align-items: center;
-  box-shadow: 0 30px 60px -30px rgba(193, 140, 60, 0.6);
+  box-shadow: 0 30px 60px -30px rgba(182, 132, 57, 0.6);
   position: relative;
   overflow: hidden;
 }
@@ -1173,7 +1224,7 @@ footer {
 .field textarea:focus {
   outline: none;
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(193, 140, 60, 0.18);
+  box-shadow: 0 0 0 3px rgba(182, 132, 57, 0.18);
 }
 .field textarea {
   min-height: 140px;
@@ -1213,7 +1264,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid var(--gold-deep);
   position: sticky;
   top: 92px;
 }
@@ -1297,8 +1348,8 @@ footer {
   overflow: hidden;
   border: 1px solid var(--rule);
   background-image:
-    linear-gradient(rgba(193, 140, 60, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(193, 140, 60, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(182, 132, 57, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(182, 132, 57, 0.08) 1px, transparent 1px),
     linear-gradient(135deg, var(--cream) 0%, var(--cream-2) 100%);
   background-size:
     32px 32px,
@@ -1315,8 +1366,8 @@ footer {
   background: var(--gold);
   border-radius: 50%;
   box-shadow:
-    0 0 0 8px rgba(193, 140, 60, 0.25),
-    0 0 0 18px rgba(193, 140, 60, 0.12);
+    0 0 0 8px rgba(182, 132, 57, 0.25),
+    0 0 0 18px rgba(182, 132, 57, 0.12);
   transform: translate(-50%, -50%);
 }
 .map::after {
@@ -1468,6 +1519,227 @@ footer {
   }
 }
 
+/* ─────────── Gallery Hero (accordion) ─────────── */
+.hero-accordion-wrap {
+  position: relative;
+  width: clamp(280px, 32vw, 440px);
+  height: clamp(720px, 96vh, 1080px);
+  flex-shrink: 0;
+  border-radius: 40px;
+  overflow: hidden;
+  clip-path: inset(0 round 40px);
+}
+
+.gh-wrap {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: clamp(520px, 80vh, 900px);
+  background: transparent;
+  overflow: hidden;
+  gap: 0;
+  border-radius: 32px;
+}
+
+.gh-panel:first-child {
+  border-radius: 32px 0 0 32px;
+}
+.gh-panel:last-child {
+  border-radius: 0 32px 32px 0;
+}
+
+.gh-panel {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: #111;
+  transition: flex 0.4s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+}
+.gh-panel:focus-visible {
+  outline: 2px solid #c9a84c;
+  outline-offset: -2px;
+  z-index: 1;
+}
+.gh-panel.is-open {
+  flex: 3.4;
+}
+
+/* Photo */
+.gh-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease;
+}
+.gh-panel:not(.is-open) .gh-photo {
+  transform: none;
+}
+
+/* Dark overlay */
+.gh-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.54);
+  transition: background 0.4s ease;
+  pointer-events: none;
+}
+.gh-panel.is-open .gh-veil {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.0) 100%
+  );
+}
+
+/* Gold top-edge accent — scales in from left on open */
+.gh-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #c9a84c;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.gh-panel.is-open .gh-accent {
+  transform: scaleX(1);
+}
+
+/* Narrow strip: index + rotated label */
+.gh-strip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  opacity: 1;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+.gh-panel.is-open .gh-strip {
+  opacity: 0;
+}
+
+.gh-idx {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: rgba(201, 168, 76, 0.5);
+  line-height: 1;
+}
+
+.gh-vert {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  line-height: 1;
+}
+
+/* Active bottom bar */
+.gh-foot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 28px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease 0.07s, transform 0.3s ease 0.07s;
+  pointer-events: none;
+}
+.gh-panel.is-open .gh-foot {
+  opacity: 1;
+  transform: none;
+}
+
+.gh-foot-name {
+  font-size: clamp(22px, 2.8vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #fff;
+  line-height: 1;
+  text-align: left;
+}
+
+.gh-foot-count {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  white-space: nowrap;
+  padding-bottom: 4px;
+  flex-shrink: 0;
+}
+
+/* Section fills wrapper absolutely — no height-chain dependency */
+.gh-wrap-fill {
+  position: absolute !important;
+  inset: 0 !important;
+  height: auto !important;
+}
+
+/* Mobile: vertical stack, height-based transition */
+@media (max-width: 640px) {
+  .gh-wrap {
+    flex-direction: column;
+    height: auto;
+    gap: 3px;
+  }
+  .gh-panel {
+    height: 110px;
+    flex: none !important;
+    transition: height 0.4s ease;
+  }
+  .gh-panel.is-open {
+    height: 300px;
+    flex: none !important;
+  }
+  .gh-strip {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 20px;
+    gap: 14px;
+  }
+  .gh-vert {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 11px;
+  }
+  .gh-foot {
+    padding: 14px 20px 20px;
+  }
+  .gh-foot-name {
+    font-size: 20px;
+  }
+}
+
 /* ─────────── Legal pages ─────────── */
 .header-legal {
   background: var(--espresso);
@@ -1482,7 +1754,7 @@ footer {
   inset: 0;
   background: radial-gradient(
     ellipse 80% 60% at 100% 0%,
-    rgba(193, 140, 60, 0.12),
+    rgba(182, 132, 57, 0.12),
     transparent 60%
   );
   pointer-events: none;

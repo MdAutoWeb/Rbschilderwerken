@@ -2,8 +2,10 @@
 export const BUSINESS = {
   name: "RB Schilderwerken",
   legalName: "RB Schilderwerken",
-  vatNumber: "BE 0XXX.XXX.XXX",
-  email: "rb.schilderwerkenn@gmail.com",
+  vatNumber: "BE 1026.683.929",
+  foundedDate: "2025-08-25",
+  foundedLabel: "25/08/2025",
+  email: "info@rbschilderwerken.be",
   phone: "+32 474 27 15 75",
   phoneTel: "+32474271575",
   address: {
@@ -14,6 +16,6 @@ export const BUSINESS = {
     country: "België",
     full: "Langepijpestraat 1, bus v009, 8820 Torhout, België",
   },
-  dpoEmail: "rb.schilderwerkenn@gmail.com",
+  dpoEmail: "info@rbschilderwerken.be",
   website: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rbschilderwerken.be",
 } as const;

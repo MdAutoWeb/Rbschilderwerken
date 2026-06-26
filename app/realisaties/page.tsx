@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Realisaties, RB Schilderwerken",
     description:
-      "15 jaar vakmanschap in West-Vlaanderen. Voor & na: zie het verschil in badkamer, living, slaapkamer en renovatieprojecten.",
+      "Vakmanschap in West-Vlaanderen. Voor en na: badkamer, living, slaapkamer en renovatieprojecten.",
     url: "/realisaties",
   },
 };
@@ -27,7 +27,7 @@ export default function Realisaties() {
         <div className="container">
           <div className="header-grid">
             <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-              <span className="eyebrow on-dark">Portfolio, 2010 tot 2026</span>
+              <span className="eyebrow on-dark">Portfolio 2025 en 2026</span>
               <h1 className="display" style={{ color: "var(--cream)", fontSize: "clamp(44px, 7vw, 92px)" }}>
                 Werk dat<br />
                 <span style={{ color: "var(--gold-light)", fontStyle: "italic", fontWeight: 500 }}>voor zich</span> spreekt.
@@ -40,7 +40,7 @@ export default function Realisaties() {
               </div>
               <div>
                 <dt>Ervaring</dt>
-                <dd>15 jaar vakmanschap</dd>
+                <dd>Sinds 2025</dd>
               </div>
               <div>
                 <dt>Specialisaties</dt>

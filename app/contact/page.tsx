@@ -162,8 +162,8 @@ export default function Contact() {
               <div className="rail-item">
                 <span className="lbl">Email</span>
                 <span className="val">
-                  <a href="mailto:rb.schilderwerkenn@gmail.com">
-                    rb.schilderwerkenn@gmail.com
+                  <a href="mailto:info@rbschilderwerken.be">
+                    info@rbschilderwerken.be
                   </a>
                 </span>
               </div>
