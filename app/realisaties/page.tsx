@@ -5,10 +5,16 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import FilterGrid from "@/components/FilterGrid";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
+
 export const metadata: Metadata = {
   title: "Realisaties, schilderwerk in West-Vlaanderen",
   description:
     "Bekijk onze realisaties: badkamer, living, slaapkamer, keuken en gevels. Vakkundig schilderwerk en renovatie door RB Schilderwerken in Torhout, West-Vlaanderen.",
+  alternates: {
+    canonical: "/realisaties",
+  },
   openGraph: {
     title: "Realisaties, RB Schilderwerken",
     description:
@@ -17,9 +23,27 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Realisaties",
+      item: `${SITE_URL}/realisaties`,
+    },
+  ],
+};
+
 export default function Realisaties() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar active="realisaties" />
 
       {/* PAGE HEADER */}
@@ -58,6 +82,29 @@ export default function Realisaties() {
       {/* PROJECT GRID */}
       <section className="sec-white">
         <div className="container">
+          <div className="sec-head">
+            <span className="eyebrow">Realisaties</span>
+            <h2 className="h2">
+              Van badkamer tot gevel,
+              <br />
+              elk project met dezelfde zorg.
+            </h2>
+            <p className="lede">
+              Hieronder vindt u een selectie van recente realisaties van RB
+              Schilderwerken in Torhout en de rest van West-Vlaanderen. Van een
+              volledig vernieuwde badkamer en een opgefriste living tot
+              buitenschilderwerk aan gevel en ramen: elk project toont hoe een
+              grondige voorbereiding en een nette afwerking het verschil maken.
+              We schuren, plamuren en strijken voor waar nodig, plakken alles
+              zorgvuldig af en bouwen de verf op in meerdere lagen, zowel binnen
+              als buiten. Bij veel projecten ziet u via de voor-en-na-beelden
+              meteen het resultaat. We werken voor particulieren én aannemers,
+              telkens met dezelfde aandacht voor detail, ongeacht de omvang van
+              de opdracht. Heeft u een gelijkaardig project in gedachten? Bekijk
+              de voorbeelden en vraag vrijblijvend een offerte aan; u krijgt
+              binnen 48&nbsp;uur een antwoord op maat van uw woning en budget.
+            </p>
+          </div>
           <FilterGrid />
         </div>
       </section>

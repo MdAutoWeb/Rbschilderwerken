@@ -16,6 +16,7 @@ interface Project {
   variant: "wide" | "tall" | "square" | "";
   visual: React.ReactNode;
   title: string;
+  desc?: string;
   extra?: React.ReactNode;
 }
 
@@ -65,6 +66,7 @@ function buildProjects(): Project[] {
         />
       ),
       title: "Ramen & deur\nin frisse kleur",
+      desc: "Buitenschilderwerk van gevel, ramen en voordeur van een woning: alles geschuurd, geprimerd en weerbestendig afgewerkt in een frisse kleur.",
     },
     {
       id: "badkamer",
@@ -73,6 +75,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.badkamerVoor} na={IMG.voorNa.badkamerNa} label="Badkamer" />,
       title: "Badkamer volledig\nvernieuwd",
+      desc: "Volledige renovatie van een badkamer met vochtbestendige, schimmelwerende afwerking op muren en plafond.",
     },
     {
       id: "living",
@@ -81,6 +84,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.livingVoor} na={IMG.voorNa.livingNa} label="Living" />,
       title: "Living in\nnieuw jasje",
+      desc: "Living van een gezinswoning opnieuw geschilderd, van het bijwerken van de muren tot een egale eindlaag in latex.",
     },
     {
       id: "renovatie",
@@ -89,6 +93,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.renovatieVoor} na={IMG.voorNa.renovatieNa} label="Renovatie" />,
       title: "Volledige\nkamerrenovatie",
+      desc: "Volledige kamerrenovatie waarbij muren en plafond werden geplamuurd, geschuurd en in meerdere lagen afgewerkt.",
     },
     {
       id: "wc",
@@ -97,6 +102,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.wcVoor} na={IMG.voorNa.wcNa} label="WC" />,
       title: "WC opgefrist\nvoor & na",
+      desc: "Toilet opgefrist met een frisse, goed reinigbare muurafwerking; het verschil voor en na is meteen zichtbaar.",
     },
     {
       id: "keuken",
@@ -105,6 +111,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.keuken} alt="Keuken na schilderwerk" />,
       title: "Keuken strak\nafgewerkt",
+      desc: "Keuken strak geschilderd met een vetwerende, goed afneembare verf op muren en plafond.",
     },
     {
       id: "living-foto",
@@ -113,6 +120,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.living} alt="Living na schilderwerk" />,
       title: "Living\nstrak afgewerkt",
+      desc: "Living afgewerkt in een warme, egale tint met strak afgelijnde plafond- en muurranden.",
     },
     {
       id: "traphal",
@@ -121,6 +129,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.traphal} alt="Traphal na renovatie" />,
       title: "Traphal & overloop\nvolledig vernieuwd",
+      desc: "Traphal en overloop volledig vernieuwd, inclusief het lastig bereikbare houtwerk en de hoge muurvlakken.",
     },
     {
       id: "slaapkamer",
@@ -129,6 +138,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.slaapkamer} alt="Slaapkamer na schilderwerk" />,
       title: "Slaapkamer in\nzachte tinten",
+      desc: "Slaapkamer geschilderd in zachte, rustgevende tinten met een mat afgewerkt plafond.",
     },
     {
       id: "slaapkamer2",
@@ -137,6 +147,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.slaapkamer2} alt="Tweede slaapkamer na schilderwerk" />,
       title: "Tweede slaapkamer,\néén palet",
+      desc: "Tweede slaapkamer afgewerkt in één doorlopend kleurenpalet voor een rustige, samenhangende uitstraling.",
     },
     {
       id: "deur",
@@ -154,6 +165,7 @@ function buildProjects(): Project[] {
         </div>
       ),
       title: "Deuren & kozijnen\nopnieuw afgewerkt",
+      desc: "Binnendeuren en kozijnen geschuurd, geprimerd en opnieuw gelakt voor een strakke, duurzame afwerking.",
       extra: (
         <Link className="btn btn-outline-dark btn-sm" href="/contact">
           Vergelijkbaar project? <span className="arrow" aria-hidden="true"></span>
@@ -202,6 +214,7 @@ export default function FilterGrid() {
             >
               <div style={p.id === "deur" ? { display: "flex", flexDirection: "column", gap: 4, flex: 1 } : undefined}>
                 <h3 className="ttl" style={{ whiteSpace: "pre-line" }}>{p.title}</h3>
+                {p.desc ? <p className="ttl-desc">{p.desc}</p> : null}
               </div>
               {p.extra}
             </div>

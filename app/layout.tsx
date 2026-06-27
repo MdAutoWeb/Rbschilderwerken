@@ -9,7 +9,8 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rbschilderwerken.be";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "PaintingContractor",
   "@id": `${SITE_URL}/#business`,
   name: "RB Schilderwerken",
   description:
@@ -117,17 +118,32 @@ const localBusinessSchema = {
   priceRange: "$$",
   currenciesAccepted: "EUR",
   paymentAccepted: "Cash, Overschrijving",
+  foundingDate: "2025-08-25",
+  vatID: "BE 1026.683.929",
+  sameAs: ["https://www.facebook.com/profile.php?id=61577985017802"],
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "RB Schilderwerken",
+  inLanguage: "nl-BE",
+  publisher: { "@id": `${SITE_URL}/#business` },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl" className={inter.variable}>
+    <html lang="nl-BE" className={inter.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
       </head>
       <body>

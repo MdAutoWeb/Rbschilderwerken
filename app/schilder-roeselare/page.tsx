@@ -5,30 +5,30 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://rbschilderwerken.be";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 export const metadata: Metadata = {
   title: "Schilder Roeselare | RB Schilderwerken",
   description:
-    "Vakkundige schilder in Roeselare. Binnen- en buitenschilderwerk, renovatie. 15 jaar ervaring. Gratis offerte binnen 48u.",
+    "Vakkundige schilder in Roeselare. Binnen- en buitenschilderwerk, renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
   alternates: {
     canonical: "/schilder-roeselare",
   },
   openGraph: {
     title: "Schilder Roeselare | RB Schilderwerken",
     description:
-      "Vakkundige schilder in Roeselare. Binnen- en buitenschilderwerk, renovatie. 15 jaar ervaring. Gratis offerte binnen 48u.",
+      "Vakkundige schilder in Roeselare. Binnen- en buitenschilderwerk, renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
     url: "/schilder-roeselare",
   },
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_URL}/schilder-roeselare#business`,
+  "@type": "PaintingContractor",
+  "@id": `${SITE_URL}/#business`,
   name: "RB Schilderwerken",
   description:
-    "Vakkundige schilder actief in Roeselare. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar ervaring.",
+    "Vakkundige schilder actief in Roeselare. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Ruffino.",
   url: `${SITE_URL}/schilder-roeselare`,
   telephone: "+32474271575",
   email: "info@rbschilderwerken.be",
@@ -117,6 +117,20 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Schilder Roeselare",
+      item: `${SITE_URL}/schilder-roeselare`,
+    },
+  ],
+};
+
 export default function SchilderRoeselare() {
   return (
     <>
@@ -127,6 +141,10 @@ export default function SchilderRoeselare() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <Navbar active="home" />
@@ -161,7 +179,7 @@ export default function SchilderRoeselare() {
               Op zoek naar een vakkundige schilder in Roeselare? RB
               Schilderwerken verzorgt al het schilderwerk binnen en buiten, van
               een frisse muur in de living tot een volledig herstelde gevel. Met
-              15 jaar ervaring weet zaakvoerder Ruffino dat een mooi resultaat
+              15 jaar vakervaring weet zaakvoerder Ruffino dat een mooi resultaat
               begint bij een grondige voorbereiding: degelijk afplakken,
               schuren, ontvetten en voorstrijken voordat de eerste laag verf op
               de muur komt. Of u nu een kamer een nieuwe look wil geven, uw
@@ -207,7 +225,8 @@ export default function SchilderRoeselare() {
               <h3 className="srv-title">Binnen­schilderwerk</h3>
               <p className="srv-body">
                 Muren, plafonds, deuren en kasten, strak afgeplakt en dampdicht
-                onderlegd, in twee tot drie lagen opgebouwd.
+                onderlegd, in twee tot drie lagen opgebouwd. Zo geven we woningen
+                en appartementen in Roeselare en Rumbeke een frisse uitstraling.
               </p>
               <span className="srv-tags">Latex, lak, plafonds, deuren</span>
             </article>
@@ -216,7 +235,8 @@ export default function SchilderRoeselare() {
               <h3 className="srv-title">Buiten­schilderwerk</h3>
               <p className="srv-body">
                 Gevels, ramen, dakgoten en houtwerk. Volledig schuren, ontvetten
-                en weerbestendig afwerken.
+                en weerbestendig afwerken. Beschermt het buitenschrijnwerk van
+                Roeselaarse woningen jarenlang tegen weer en wind.
               </p>
               <span className="srv-tags">
                 Gevels, ramen, houtwerk, dakgoten
@@ -227,7 +247,8 @@ export default function SchilderRoeselare() {
               <h3 className="srv-title">Behang­werken</h3>
               <p className="srv-body">
                 Van structuurbehang tot fotobehang, met onzichtbare naden en
-                kaarsrechte patronen.
+                kaarsrechte patronen. Een geliefde afwerking bij interieurs in
+                Roeselare en omstreken.
               </p>
               <span className="srv-tags">
                 Vlies, vinyl, fotobehang, texturen
@@ -238,7 +259,9 @@ export default function SchilderRoeselare() {
               <h3 className="srv-title">Renovatie &amp; nieuwbouw</h3>
               <p className="srv-body">
                 Volledige afwerking voor aannemers en particulieren: plamuren,
-                schuren, schilderen, opgeleverd binnen planning.
+                schuren, schilderen, opgeleverd binnen planning. Ook voor
+                renovatie- en nieuwbouwprojecten in Roeselare en de
+                deelgemeenten.
               </p>
               <span className="srv-tags">
                 Plamuur, schuren, voorstrijken, oplevering
@@ -260,10 +283,13 @@ export default function SchilderRoeselare() {
             </h2>
           </div>
 
-          <div className="legal-prose reveal" style={{ maxWidth: 760 }}>
+          <div
+            className="legal-prose reveal faq-list"
+            style={{ maxWidth: 760 }}
+          >
             {faqItems.map((item) => (
               <div key={item.q}>
-                <h2 style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>{item.q}</h2>
+                <h3>{item.q}</h3>
                 <p>{item.a}</p>
               </div>
             ))}
@@ -348,8 +374,16 @@ export default function SchilderRoeselare() {
                 margin: "8px 0 0",
               }}
             >
-              +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75,
-              info@rbschilderwerken.be
+              <a href="tel:+32474271575" style={{ color: "inherit" }}>
+                +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75
+              </a>
+              ,{" "}
+              <a
+                href="mailto:info@rbschilderwerken.be"
+                style={{ color: "inherit" }}
+              >
+                info@rbschilderwerken.be
+              </a>
             </p>
           </div>
         </div>

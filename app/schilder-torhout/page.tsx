@@ -5,30 +5,30 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://rbschilderwerken.be";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 export const metadata: Metadata = {
   title: "Schilder Torhout | RB Schilderwerken",
   description:
-    "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. 15 jaar ervaring. Gratis offerte binnen 48u.",
+    "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
   alternates: {
     canonical: "/schilder-torhout",
   },
   openGraph: {
     title: "Schilder Torhout | RB Schilderwerken",
     description:
-      "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. 15 jaar ervaring. Gratis offerte binnen 48u.",
+      "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
     url: "/schilder-torhout",
   },
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_URL}/schilder-torhout#business`,
+  "@type": "PaintingContractor",
+  "@id": `${SITE_URL}/#business`,
   name: "RB Schilderwerken",
   description:
-    "Vakkundige schilder gevestigd in Torhout. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar ervaring.",
+    "Vakkundige schilder gevestigd in Torhout. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Ruffino.",
   url: `${SITE_URL}/schilder-torhout`,
   telephone: "+32474271575",
   email: "info@rbschilderwerken.be",
@@ -123,6 +123,20 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Schilder Torhout",
+      item: `${SITE_URL}/schilder-torhout`,
+    },
+  ],
+};
+
 export default function SchilderTorhout() {
   return (
     <>
@@ -133,6 +147,10 @@ export default function SchilderTorhout() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <Navbar active="home" />
@@ -167,7 +185,8 @@ export default function SchilderTorhout() {
               Op zoek naar een vakkundige schilder in Torhout? RB Schilderwerken
               is hier gevestigd en verzorgt al het schilderwerk binnen en
               buiten, van een frisse muur in de living tot een volledig
-              herstelde gevel. Met 15 jaar ervaring weet zaakvoerder Ruffino dat
+              herstelde gevel. Met 15 jaar vakervaring weet zaakvoerder Ruffino
+              dat
               een mooi resultaat begint bij een grondige voorbereiding: degelijk
               afplakken, schuren, ontvetten en voorstrijken voordat de eerste
               laag verf op de muur komt. Omdat we in Torhout zelf zitten, zijn we
@@ -211,7 +230,8 @@ export default function SchilderTorhout() {
               <h3 className="srv-title">Binnen­schilderwerk</h3>
               <p className="srv-body">
                 Muren, plafonds, deuren en kasten, strak afgeplakt en dampdicht
-                onderlegd, in twee tot drie lagen opgebouwd.
+                onderlegd, in twee tot drie lagen opgebouwd. In Torhoutse
+                woningen en appartementen frissen we zo elke ruimte vakkundig op.
               </p>
               <span className="srv-tags">Latex, lak, plafonds, deuren</span>
             </article>
@@ -220,7 +240,8 @@ export default function SchilderTorhout() {
               <h3 className="srv-title">Buiten­schilderwerk</h3>
               <p className="srv-body">
                 Gevels, ramen, dakgoten en houtwerk. Volledig schuren, ontvetten
-                en weerbestendig afwerken.
+                en weerbestendig afwerken. Ideaal voor de gevels en het
+                buitenschrijnwerk van woningen in Torhout en Wijnendale.
               </p>
               <span className="srv-tags">
                 Gevels, ramen, houtwerk, dakgoten
@@ -231,7 +252,8 @@ export default function SchilderTorhout() {
               <h3 className="srv-title">Behang­werken</h3>
               <p className="srv-body">
                 Van structuurbehang tot fotobehang, met onzichtbare naden en
-                kaarsrechte patronen.
+                kaarsrechte patronen. Ook bij Torhoutse klanten een populaire
+                manier om een muur karakter te geven.
               </p>
               <span className="srv-tags">
                 Vlies, vinyl, fotobehang, texturen
@@ -242,7 +264,9 @@ export default function SchilderTorhout() {
               <h3 className="srv-title">Renovatie &amp; nieuwbouw</h3>
               <p className="srv-body">
                 Volledige afwerking voor aannemers en particulieren: plamuren,
-                schuren, schilderen, opgeleverd binnen planning.
+                schuren, schilderen, opgeleverd binnen planning. We werken
+                hiervoor samen met aannemers en particulieren in Torhout en
+                omstreken.
               </p>
               <span className="srv-tags">
                 Plamuur, schuren, voorstrijken, oplevering
@@ -264,10 +288,13 @@ export default function SchilderTorhout() {
             </h2>
           </div>
 
-          <div className="legal-prose reveal" style={{ maxWidth: 760 }}>
+          <div
+            className="legal-prose reveal faq-list"
+            style={{ maxWidth: 760 }}
+          >
             {faqItems.map((item) => (
               <div key={item.q}>
-                <h2 style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>{item.q}</h2>
+                <h3>{item.q}</h3>
                 <p>{item.a}</p>
               </div>
             ))}
@@ -352,8 +379,16 @@ export default function SchilderTorhout() {
                 margin: "8px 0 0",
               }}
             >
-              +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75,
-              info@rbschilderwerken.be
+              <a href="tel:+32474271575" style={{ color: "inherit" }}>
+                +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75
+              </a>
+              ,{" "}
+              <a
+                href="mailto:info@rbschilderwerken.be"
+                style={{ color: "inherit" }}
+              >
+                info@rbschilderwerken.be
+              </a>
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { IMG } from "@/lib/assets";
 
 const PANELS = [
@@ -46,16 +47,17 @@ export default function GalleryHero() {
             onClick={() => setActive(i)}
             aria-label={`Toon ${panel.label}`}
           >
-            {/* Photo — bg-image avoids fill/height-chain issues */}
-            <div
-              className="gh-photo"
-              role="img"
-              aria-label={panel.alt}
-              style={{
-                backgroundImage: `url('${panel.src}')`,
-                backgroundPosition: panel.pos,
-              }}
-            />
+            {/* Photo */}
+            <div className="gh-photo">
+              <Image
+                src={panel.src}
+                alt={panel.alt}
+                fill
+                priority={i === 0}
+                sizes="(max-width: 640px) 92vw, 50vw"
+                style={{ objectFit: "cover", objectPosition: panel.pos }}
+              />
+            </div>
 
             {/* Overlay — heavy on narrow, gradient-only on open */}
             <div className="gh-veil" />
@@ -75,6 +77,20 @@ export default function GalleryHero() {
           </button>
         );
       })}
+
+      {/* Mobile dot navigation */}
+      <div className="gh-dots" role="tablist" aria-label="Kies project">
+        {PANELS.map((panel, i) => (
+          <button
+            key={i}
+            type="button"
+            className={`gh-dot${active === i ? " is-active" : ""}`}
+            onClick={() => setActive(i)}
+            aria-label={`Toon ${panel.label}`}
+            aria-selected={active === i}
+          />
+        ))}
+      </div>
     </section>
   );
 }

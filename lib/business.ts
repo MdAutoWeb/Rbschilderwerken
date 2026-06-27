@@ -17,5 +17,5 @@ export const BUSINESS = {
     full: "Langepijpestraat 1, bus v009, 8820 Torhout, België",
   },
   dpoEmail: "info@rbschilderwerken.be",
-  website: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rbschilderwerken.be",
+  website: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be",
 } as const;

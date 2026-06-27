@@ -9,11 +9,10 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Image
-              src="/assets/logo.png?v=2"
+              src="/assets/logo.png"
               alt="RB Schilderwerken"
               width={76}
               height={76}
-              unoptimized
             />
             <p>
               Schilderwerken waar kwaliteit voorop staat. Actief in West-Vlaanderen
@@ -25,6 +24,13 @@ export default function Footer() {
             <a href="tel:+32474271575">+32 474 27 15 75</a>
             <a href="mailto:info@rbschilderwerken.be">info@rbschilderwerken.be</a>
             <a href="https://wa.me/32474271575" target="_blank" rel="noopener">WhatsApp</a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61577985017802"
+              target="_blank"
+              rel="noopener"
+            >
+              Facebook
+            </a>
           </div>
           <div className="footer-col">
             <h4>Adres</h4>

@@ -220,6 +220,11 @@ button {
 .eyebrow.no-rule::before {
   display: none;
 }
+@media (max-width: 640px) {
+  .hero-split-copy .eyebrow::before {
+    display: none;
+  }
+}
 
 h1,
 h2,
@@ -412,6 +417,7 @@ section {
   cursor: ew-resize;
   margin: 0;
   z-index: 3;
+  touch-action: pan-y;
 }
 
 /* ─────────── Footer ─────────── */
@@ -1212,7 +1218,7 @@ footer {
   border-radius: 2px;
   padding: 14px 16px;
   font: inherit;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--ink);
   transition:
     border-color 0.2s ease,
@@ -1469,6 +1475,65 @@ footer {
   }
 }
 
+/* ── Carousel dot-navigatie (alleen mobile) ── */
+.carousel-dots {
+  display: none;
+}
+@media (max-width: 640px) {
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: 8px;
+  }
+}
+.carousel-dot {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(26, 13, 2, 0.22);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.carousel-dot.is-active::before {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+.faq-list h3 {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 28px 0 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+.faq-list > div:first-child h3 {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.project-meta .ttl-desc {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
 /* ── Stats strip: centreer op klein scherm ── */
 @media (max-width: 520px) {
   .stat {
@@ -1705,38 +1770,77 @@ footer {
   height: auto !important;
 }
 
-/* Mobile: vertical stack, height-based transition */
+/* Dot navigation (mobile only) */
+.gh-dots {
+  display: none;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  gap: 0;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.gh-dot {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.gh-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.gh-dot.is-active::before {
+  background: var(--gold-light);
+  transform: scale(1.25);
+}
+
+/* Mobile: single photo with dot navigation */
 @media (max-width: 640px) {
   .gh-wrap {
-    flex-direction: column;
-    height: auto;
-    gap: 3px;
+    flex-direction: row;
+    height: 100%;
+    gap: 0;
   }
   .gh-panel {
-    height: 110px;
+    height: 100%;
     flex: none !important;
-    transition: height 0.4s ease;
+    transition: opacity 0.3s ease;
+  }
+  .gh-panel:not(.is-open) {
+    display: none;
   }
   .gh-panel.is-open {
-    height: 300px;
-    flex: none !important;
+    display: block;
+    height: 100%;
+    flex: 1 1 auto !important;
+    border-radius: 32px;
   }
   .gh-strip {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding-left: 20px;
-    gap: 14px;
-  }
-  .gh-vert {
-    writing-mode: horizontal-tb;
-    transform: none;
-    font-size: 11px;
+    display: none;
   }
   .gh-foot {
-    padding: 14px 20px 20px;
+    padding: 14px 20px 40px;
   }
   .gh-foot-name {
     font-size: 20px;
+  }
+  .gh-dots {
+    display: flex;
   }
 }
 

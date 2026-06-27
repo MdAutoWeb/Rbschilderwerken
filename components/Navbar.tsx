@@ -11,12 +11,11 @@ export default function Navbar({ active }: NavbarProps) {
       <div className="container nav-inner">
         <Link className="nav-brand" href="/" aria-label="RB Schilderwerken, naar home">
           <Image
-            src="/assets/logo.png?v=2"
+            src="/assets/logo.png"
             alt="RB Schilderwerken"
             width={88}
             height={88}
             priority
-            unoptimized
           />
         </Link>
         <nav className="nav-links" aria-label="Hoofdnavigatie">

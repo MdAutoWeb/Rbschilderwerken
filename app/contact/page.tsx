@@ -6,10 +6,16 @@ import WaFloat from "@/components/WaFloat";
 import ContactForm from "@/components/ContactForm";
 import MapEmbed from "@/components/MapEmbed";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
+
 export const metadata: Metadata = {
   title: "Gratis offerte aanvragen, schilder Torhout",
   description:
     "Vraag gratis een offerte aan bij RB Schilderwerken in Torhout. Binnenschilderwerk, buitenschilderwerk, renovatie. Antwoord binnen 48 uur via WhatsApp of formulier.",
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     title: "Contact en offerte, RB Schilderwerken Torhout",
     description:
@@ -18,9 +24,27 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact",
+      item: `${SITE_URL}/contact`,
+    },
+  ],
+};
+
 export default function Contact() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar active="contact" />
 
       {/* HEADER */}
@@ -213,6 +237,53 @@ export default function Contact() {
           </div>
           <div className="reveal">
             <MapEmbed />
+          </div>
+
+          <div
+            className="reveal"
+            style={{
+              marginTop: 40,
+              maxWidth: 760,
+              display: "flex",
+              flexDirection: "column",
+              gap: 18,
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "clamp(20px, 2.4vw, 26px)",
+                fontWeight: 600,
+                letterSpacing: "-0.02em",
+                color: "var(--ink)",
+                margin: 0,
+              }}
+            >
+              Werkgebied
+            </h3>
+            <p className="lede" style={{ margin: 0 }}>
+              Vanuit onze thuisbasis in Torhout zijn we vlot ter plaatse in heel
+              West-Vlaanderen, met de wijk Wijnendale en buurgemeenten zoals
+              Lichtervelde, Kortemark, Ichtegem en Zedelgem binnen handbereik.
+              Ook in Roeselare en de deelgemeenten Rumbeke, Beveren en Oekene
+              voeren we regelmatig binnen- en buitenschilderwerk uit. Bekijk de
+              pagina van uw streek voor meer info en een gerichte offerte.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-torhout"
+              >
+                Schilder Torhout
+                <span className="arrow" aria-hidden="true"></span>
+              </Link>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-roeselare"
+              >
+                Schilder Roeselare
+                <span className="arrow" aria-hidden="true"></span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -7,12 +7,16 @@ import WaFloat from "@/components/WaFloat";
 import BeforeAfter from "@/components/BeforeAfter";
 import ProjectImage from "@/components/ProjectImage";
 import GalleryHero from "@/components/GalleryHero";
+import CarouselDots from "@/components/CarouselDots";
 import { IMG } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Schilder Torhout & West-Vlaanderen",
   description:
     "RB Schilderwerken: vakkundige schilder in Torhout en heel West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "RB Schilderwerken, schilder in Torhout & West-Vlaanderen",
     description:
@@ -29,7 +33,7 @@ export default function Home() {
       {/* HERO */}
       <section className="sec-white hero-section">
         <div className="container hero-split">
-          <div className="reveal hero-split-copy">
+          <div className="hero-split-copy">
             <span className="eyebrow">Schilder in Torhout, sinds 2025</span>
             <h1 className="display">
               Schilderwerken
@@ -224,7 +228,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="work-grid reveal">
+          <div className="work-grid reveal" id="work-grid">
             <article className="work-card">
               <BeforeAfter
                 style={{
@@ -286,6 +290,46 @@ export default function Home() {
                 />
               </div>
             </article>
+          </div>
+          <CarouselDots targetId="work-grid" count={3} label="Realisaties navigatie" />
+        </div>
+      </section>
+
+      {/* OVER ONS */}
+      <section className="sec-white">
+        <div className="container">
+          <div className="sec-head">
+            <span className="eyebrow">Over RB Schilderwerken</span>
+            <h2 className="h2">
+              De vakman achter
+              <br />
+              elke streek verf.
+            </h2>
+          </div>
+          <div
+            style={{
+              maxWidth: 760,
+              display: "flex",
+              flexDirection: "column",
+              gap: 18,
+            }}
+          >
+            <p className="lede" style={{ margin: 0 }}>
+              RB Schilderwerken is het schildersbedrijf van zaakvoerder Ruffino,
+              gevestigd in Torhout. Ruffino bouwde 15 jaar vakervaring op als
+              schilder en startte in 2025 zijn eigen zaak om dat vakmanschap
+              rechtstreeks bij particulieren en aannemers in West-Vlaanderen in
+              te zetten. Geen tussenpersonen, geen onderaanneming: u heeft één
+              vast aanspreekpunt dat zelf mee op de werf staat.
+            </p>
+            <p className="lede" style={{ margin: 0 }}>
+              Die ervaring zit vooral in de details die u pas later opmerkt: een
+              strak afgeplakte rand, een dampdicht onderwerk, een gevel die jaren
+              later nog altijd egaal kleurt. Elk project, van een enkele muur tot
+              een volledige renovatie, krijgt dezelfde voorbereiding, dezelfde
+              propere werf en dezelfde eerlijke nazorg. Zo weet u vooraf wat u
+              krijgt en blijft het resultaat ook na de oplevering kloppen.
+            </p>
           </div>
         </div>
       </section>
@@ -367,8 +411,16 @@ export default function Home() {
                 margin: "8px 0 0",
               }}
             >
-              +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75,
-              info@rbschilderwerken.be
+              <a href="tel:+32474271575" style={{ color: "inherit" }}>
+                +32&nbsp;474&nbsp;27&nbsp;15&nbsp;75
+              </a>
+              ,{" "}
+              <a
+                href="mailto:info@rbschilderwerken.be"
+                style={{ color: "inherit" }}
+              >
+                info@rbschilderwerken.be
+              </a>
             </p>
           </div>
         </div>
