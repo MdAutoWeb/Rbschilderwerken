@@ -28,7 +28,7 @@ const localBusinessSchema = {
   "@id": `${SITE_URL}/#business`,
   name: "RB Schilderwerken",
   description:
-    "Vakkundige schilder gevestigd in Torhout. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Ruffino.",
+    "Vakkundige schilder gevestigd in Torhout. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Rufino.",
   url: `${SITE_URL}/schilder-torhout`,
   telephone: "+32474271575",
   email: "info@rbschilderwerken.be",
@@ -185,7 +185,7 @@ export default function SchilderTorhout() {
               Op zoek naar een vakkundige schilder in Torhout? RB Schilderwerken
               is hier gevestigd en verzorgt al het schilderwerk binnen en
               buiten, van een frisse muur in de living tot een volledig
-              herstelde gevel. Met 15 jaar vakervaring weet zaakvoerder Ruffino
+              herstelde gevel. Met 15 jaar vakervaring weet zaakvoerder Rufino
               dat
               een mooi resultaat begint bij een grondige voorbereiding: degelijk
               afplakken, schuren, ontvetten en voorstrijken voordat de eerste

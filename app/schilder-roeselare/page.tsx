@@ -28,7 +28,7 @@ const localBusinessSchema = {
   "@id": `${SITE_URL}/#business`,
   name: "RB Schilderwerken",
   description:
-    "Vakkundige schilder actief in Roeselare. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Ruffino.",
+    "Vakkundige schilder actief in Roeselare. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Rufino.",
   url: `${SITE_URL}/schilder-roeselare`,
   telephone: "+32474271575",
   email: "info@rbschilderwerken.be",
@@ -179,7 +179,7 @@ export default function SchilderRoeselare() {
               Op zoek naar een vakkundige schilder in Roeselare? RB
               Schilderwerken verzorgt al het schilderwerk binnen en buiten, van
               een frisse muur in de living tot een volledig herstelde gevel. Met
-              15 jaar vakervaring weet zaakvoerder Ruffino dat een mooi resultaat
+              15 jaar vakervaring weet zaakvoerder Rufino dat een mooi resultaat
               begint bij een grondige voorbereiding: degelijk afplakken,
               schuren, ontvetten en voorstrijken voordat de eerste laag verf op
               de muur komt. Of u nu een kamer een nieuwe look wil geven, uw

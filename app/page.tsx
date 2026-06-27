@@ -315,8 +315,8 @@ export default function Home() {
             }}
           >
             <p className="lede" style={{ margin: 0 }}>
-              RB Schilderwerken is het schildersbedrijf van zaakvoerder Ruffino,
-              gevestigd in Torhout. Ruffino bouwde 15 jaar vakervaring op als
+              RB Schilderwerken is het schildersbedrijf van zaakvoerder Rufino,
+              gevestigd in Torhout. Rufino bouwde 15 jaar vakervaring op als
               schilder en startte in 2025 zijn eigen zaak om dat vakmanschap
               rechtstreeks bij particulieren en aannemers in West-Vlaanderen in
               te zetten. Geen tussenpersonen, geen onderaanneming: u heeft één
