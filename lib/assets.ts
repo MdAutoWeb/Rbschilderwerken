@@ -23,5 +23,13 @@ export const IMG = {
     deur: "/assets/voor-na/deur-voor-na.jpeg",
     hoek: "/assets/voor-na/hoek-voor-na.jpeg",
     livingVoorNa: "/assets/voor-na/living-voor-na.jpeg",
+    buitenDeurVoor: "/assets/voor-na/buiten-deur-voor.jpeg",
+    buitenDeurNa: "/assets/voor-na/buiten-deur-na.jpeg",
+    buitenRaamVoor: "/assets/voor-na/buiten-raam-voor.jpeg",
+    buitenRaamNa: "/assets/voor-na/buiten-raam-na.jpeg",
+    buitenGevelVoor: "/assets/voor-na/buiten-gevel-voor.jpeg",
+    buitenGevelNa: "/assets/voor-na/buiten-gevel-na.jpeg",
+    buitenZijgevelVoor: "/assets/buiten/zijgevel-voor.jpeg",
+    buitenZijgevelNa: "/assets/buiten/zijgevel-na.jpeg",
   },
 } as const;

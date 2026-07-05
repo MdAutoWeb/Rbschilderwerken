@@ -5,6 +5,7 @@ interface ProjectImageProps {
   alt: string;
   variant?: "before" | "after" | "default";
   priority?: boolean;
+  objectPosition?: string;
 }
 
 export default function ProjectImage({
@@ -12,6 +13,7 @@ export default function ProjectImage({
   alt,
   variant = "default",
   priority = false,
+  objectPosition = "center",
 }: ProjectImageProps) {
   const filter =
     variant === "before"
@@ -19,14 +21,19 @@ export default function ProjectImage({
       : undefined;
 
   return (
-    <Image
-      className="ba-img"
-      src={src}
-      alt={alt}
-      fill
-      sizes="(max-width: 800px) 100vw, 50vw"
-      priority={priority}
-      style={{ objectFit: "cover", objectPosition: "center", filter }}
-    />
+    <div
+      className="ba-img-wrap"
+      style={{ position: "relative", width: "100%", height: "100%" }}
+    >
+      <Image
+        className="ba-img"
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 800px) 100vw, 50vw"
+        priority={priority}
+        style={{ objectFit: "cover", objectPosition, filter }}
+      />
+    </div>
   );
 }

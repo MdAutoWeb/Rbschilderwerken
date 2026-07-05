@@ -38,15 +38,38 @@ function VoorNa({
   voor,
   na,
   label,
+  voorPosition,
+  naPosition,
+  muteBefore = true,
+  initialValue,
 }: {
   voor: string;
   na: string;
   label: string;
+  voorPosition?: string;
+  naPosition?: string;
+  muteBefore?: boolean;
+  initialValue?: number;
 }) {
   return (
     <BeforeAfter
-      beforeContent={<ProjectImage src={voor} alt={`${label} vóór renovatie`} variant="before" />}
-      afterContent={<ProjectImage src={na} alt={`${label} na renovatie`} variant="after" />}
+      initialValue={initialValue}
+      beforeContent={
+        <ProjectImage
+          src={voor}
+          alt={`${label} vóór renovatie`}
+          variant={muteBefore ? "before" : "default"}
+          objectPosition={voorPosition}
+        />
+      }
+      afterContent={
+        <ProjectImage
+          src={na}
+          alt={`${label} na renovatie`}
+          variant="after"
+          objectPosition={naPosition}
+        />
+      }
       ariaLabel={`Vergelijk ${label} voor en na`}
     />
   );
@@ -54,6 +77,70 @@ function VoorNa({
 
 function buildProjects(): Project[] {
   return [
+    {
+      id: "buiten-gevel",
+      cats: ["buiten"],
+      span: "span-7",
+      variant: "wide",
+      visual: (
+        <VoorNa
+          voor={IMG.voorNa.buitenGevelVoor}
+          na={IMG.voorNa.buitenGevelNa}
+          label="Voorgevel"
+        />
+      ),
+      title: "Voorgevel\nvoor & na",
+      desc: "Buitenschilderwerk aan voordeur en ramen: van verweerd houtwerk naar een strakke, weerbestendige grijze afwerking.",
+    },
+    {
+      id: "buiten-deur",
+      cats: ["buiten"],
+      span: "span-5",
+      variant: "tall",
+      visual: (
+        <VoorNa
+          voor={IMG.voorNa.buitenDeurVoor}
+          na={IMG.voorNa.buitenDeurNa}
+          label="Buitendeur"
+        />
+      ),
+      title: "Buitendeur\nopnieuw geschilderd",
+      desc: "Houten voordeur geschuurd, gerepareerd en opnieuw afgewerkt in een duurzame buitenverf.",
+    },
+    {
+      id: "buiten-raam",
+      cats: ["buiten"],
+      span: "span-5",
+      variant: "tall",
+      visual: (
+        <VoorNa
+          voor={IMG.voorNa.buitenRaamVoor}
+          na={IMG.voorNa.buitenRaamNa}
+          label="Buitenraam"
+        />
+      ),
+      title: "Buitenraam\nvoor & na",
+      desc: "Kozijn en raamwerk volledig voorbereid en afgewerkt met weerbestendige verf in een moderne grijstint.",
+    },
+    {
+      id: "buiten-zijgevel",
+      cats: ["buiten"],
+      span: "span-7",
+      variant: "tall",
+      visual: (
+        <VoorNa
+          voor={IMG.voorNa.buitenZijgevelVoor}
+          na={IMG.voorNa.buitenZijgevelNa}
+          label="Zijgevel"
+          voorPosition="center 70%"
+          naPosition="center 45%"
+          muteBefore={false}
+          initialValue={100}
+        />
+      ),
+      title: "Zijgevel\nvoor & na",
+      desc: "Ramen, kozijnen en dakgoten aan de zijgevel van een woning opnieuw geschilderd in een egaal donkergrijs.",
+    },
     {
       id: "gevel-ramen",
       cats: ["buiten"],
@@ -201,7 +288,7 @@ export default function FilterGrid() {
         {visible.map((p) => (
           <article
             key={p.id}
-            className={`project project--${p.id} ${p.span}${p.variant ? ` ${p.variant}` : ""} reveal`}
+            className={`project project--${p.id} ${p.span}${p.variant ? ` ${p.variant}` : ""}`}
           >
             {p.visual}
             <div

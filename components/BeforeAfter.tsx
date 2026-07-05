@@ -45,7 +45,7 @@ export default function BeforeAfter({
 
   return (
     <div className={`ba ${className}`} style={style}>
-      {beforeContent}
+      <div className="ba-before-wrap">{beforeContent}</div>
       <div className="ba-after-wrap" ref={afterWrapRef}>
         {afterContent}
       </div>

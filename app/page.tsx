@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -280,15 +279,29 @@ export default function Home() {
             </article>
 
             <article className="work-card">
-              <div className="work-single-img">
-                <Image
-                  src={IMG.renovatie.keuken}
-                  alt="Keuken na schilderwerk"
-                  fill
-                  sizes="(max-width: 800px) 100vw, 33vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
+              <BeforeAfter
+                style={{
+                  aspectRatio: "4/5",
+                  boxShadow: "none",
+                  borderRadius: 0,
+                }}
+                initialValue={50}
+                beforeContent={
+                  <ProjectImage
+                    src={IMG.voorNa.buitenZijgevelVoor}
+                    alt="Zijgevel vóór schilderwerk"
+                    objectPosition="center 70%"
+                  />
+                }
+                afterContent={
+                  <ProjectImage
+                    src={IMG.voorNa.buitenZijgevelNa}
+                    alt="Zijgevel na schilderwerk"
+                    objectPosition="center 45%"
+                  />
+                }
+                ariaLabel="Vergelijk zijgevel voor en na"
+              />
             </article>
           </div>
           <CarouselDots targetId="work-grid" count={3} label="Realisaties navigatie" />
