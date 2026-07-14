@@ -5,9 +5,12 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import ContactForm from "@/components/ContactForm";
 import MapEmbed from "@/components/MapEmbed";
+import {
+  getContactPageSchema,
+  getSiteUrl,
+} from "@/lib/schema";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
+const SITE_URL = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Gratis offerte aanvragen, schilder Torhout",
@@ -38,9 +41,17 @@ const breadcrumbSchema = {
   ],
 };
 
+const contactPageSchema = getContactPageSchema(SITE_URL);
+
 export default function Contact() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageSchema),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
