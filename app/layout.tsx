@@ -20,14 +20,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: "%s | RB Schilderwerken",
-    default: "RB Schilderwerken, schilder in Torhout & West-Vlaanderen",
+    default: "RB Schilderwerken, schilder in Torhout, Lichtervelde & omstreken",
   },
   description:
-    "Vakkundige schilderwerken in Torhout en West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
+    "Vakkundige schilderwerken in Torhout, Lichtervelde, Wingene en omstreken. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
   keywords: [
     "schilder Torhout",
-    "schilderwerken West-Vlaanderen",
-    "schilder West-Vlaanderen",
+    "schilder Lichtervelde",
+    "schilder Wingene",
+    "schilderwerken Torhout",
     "binnenschilderwerk",
     "buitenschilderwerk",
     "schilder offerte",

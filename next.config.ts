@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/schilder-roeselare",
+        destination: "/schilder-lichtervelde",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

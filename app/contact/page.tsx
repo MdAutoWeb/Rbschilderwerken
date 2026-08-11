@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact en offerte, RB Schilderwerken Torhout",
     description:
-      "Gratis offerte voor uw schilderwerk in West-Vlaanderen. Bereikbaar via WhatsApp, telefoon of e-mail. Torhout.",
+      "Gratis offerte voor uw schilderwerk in Torhout, Lichtervelde en omstreken. Bereikbaar via WhatsApp, telefoon of e-mail.",
     url: "/contact",
   },
 };
@@ -212,7 +212,7 @@ export default function Contact() {
               </div>
               <div className="rail-item">
                 <span className="lbl">Regio</span>
-                <span className="val">West-Vlaanderen</span>
+                <span className="val">Torhout, Lichtervelde &amp; omstreken</span>
               </div>
 
               <div className="hours">
@@ -243,7 +243,7 @@ export default function Contact() {
             <h2 className="h2">
               Gevestigd in Torhout,
               <br />
-              actief in heel West-Vlaanderen.
+              actief in Lichtervelde, Wingene &amp; omstreken.
             </h2>
           </div>
           <div className="reveal">
@@ -272,12 +272,11 @@ export default function Contact() {
               Werkgebied
             </h3>
             <p className="lede" style={{ margin: 0 }}>
-              Vanuit onze thuisbasis in Torhout zijn we vlot ter plaatse in heel
-              West-Vlaanderen, met de wijk Wijnendale en buurgemeenten zoals
-              Lichtervelde, Kortemark, Ichtegem en Zedelgem binnen handbereik.
-              Ook in Roeselare en de deelgemeenten Rumbeke, Beveren en Oekene
-              voeren we regelmatig binnen- en buitenschilderwerk uit. Bekijk de
-              pagina van uw streek voor meer info en een gerichte offerte.
+              Vanuit onze thuisbasis in Torhout zijn we vlot ter plaatse in
+              Wijnendale, Lichtervelde, Wingene (inclusief Zwevezele) en
+              buurgemeenten zoals Kortemark, Ichtegem, Zedelgem en Ardooie.
+              Bekijk de pagina van uw streek voor meer info en een gerichte
+              offerte.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
               <Link
@@ -289,9 +288,9 @@ export default function Contact() {
               </Link>
               <Link
                 className="btn btn-outline-dark btn-sm"
-                href="/schilder-roeselare"
+                href="/schilder-lichtervelde"
               >
-                Schilder Roeselare
+                Schilder Lichtervelde
                 <span className="arrow" aria-hidden="true"></span>
               </Link>
             </div>

@@ -9,16 +9,16 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 export const metadata: Metadata = {
-  title: "Realisaties, schilderwerk in West-Vlaanderen",
+  title: "Realisaties, schilderwerk Torhout & omstreken",
   description:
-    "Bekijk onze realisaties: badkamer, living, slaapkamer, keuken en gevels. Vakkundig schilderwerk en renovatie door RB Schilderwerken in Torhout, West-Vlaanderen.",
+    "Bekijk onze realisaties: badkamer, living, slaapkamer, keuken en gevels. Vakkundig schilderwerk en renovatie door RB Schilderwerken in Torhout, Lichtervelde en omstreken.",
   alternates: {
     canonical: "/realisaties",
   },
   openGraph: {
     title: "Realisaties, RB Schilderwerken",
     description:
-      "Vakmanschap in West-Vlaanderen. Voor en na: badkamer, living, slaapkamer en renovatieprojecten.",
+      "Vakmanschap in Torhout, Lichtervelde en omstreken. Voor en na: badkamer, living, slaapkamer en renovatieprojecten.",
     url: "/realisaties",
   },
 };
@@ -60,11 +60,11 @@ export default function Realisaties() {
             <dl className="header-meta reveal d-1">
               <div>
                 <dt>Regio</dt>
-                <dd>West-Vlaanderen</dd>
+                <dd>Torhout &amp; omstreken</dd>
               </div>
               <div>
                 <dt>Ervaring</dt>
-                <dd>Sinds 2025</dd>
+                <dd>Sinds 2008</dd>
               </div>
               <div>
                 <dt>Specialisaties</dt>
@@ -91,7 +91,7 @@ export default function Realisaties() {
             </h2>
             <p className="lede">
               Hieronder vindt u een selectie van recente realisaties van RB
-              Schilderwerken in Torhout en de rest van West-Vlaanderen. Van een
+              Schilderwerken in Torhout, Lichtervelde en omstreken. Van een
               volledig vernieuwde badkamer en een opgefriste living tot
               buitenschilderwerk aan gevel en ramen: elk project toont hoe een
               grondige voorbereiding en een nette afwerking het verschil maken.

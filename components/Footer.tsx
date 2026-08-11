@@ -15,8 +15,8 @@ export default function Footer() {
               height={76}
             />
             <p>
-              Schilderwerken waar kwaliteit voorop staat. Actief in West-Vlaanderen
-              sinds {BUSINESS.foundedLabel}.
+              Schilderwerken waar kwaliteit voorop staat. Actief in Torhout,
+              Lichtervelde, Wingene en omstreken.
             </p>
           </div>
           <div className="footer-col">
@@ -44,7 +44,7 @@ export default function Footer() {
             <details className="footer-regios">
               <summary>Regio&apos;s</summary>
               <Link href="/schilder-torhout">Schilder Torhout</Link>
-              <Link href="/schilder-roeselare">Schilder Roeselare</Link>
+              <Link href="/schilder-lichtervelde">Schilder Lichtervelde</Link>
             </details>
           </div>
         </div>

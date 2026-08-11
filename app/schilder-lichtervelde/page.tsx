@@ -8,98 +8,39 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 export const metadata: Metadata = {
-  title: "Schilder Roeselare | RB Schilderwerken",
+  title: "Schilder Lichtervelde",
   description:
-    "Vakkundige schilder in Roeselare. Binnen- en buitenschilderwerk, renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
+    "Vakkundige schilder in Lichtervelde. Binnen- en buitenschilderwerk, behangwerken en renovatie. Vakervaring sinds 2008. Gratis offerte binnen 48u.",
   alternates: {
-    canonical: "/schilder-roeselare",
+    canonical: "/schilder-lichtervelde",
   },
   openGraph: {
-    title: "Schilder Roeselare | RB Schilderwerken",
+    title: "Schilder Lichtervelde | RB Schilderwerken",
     description:
-      "Vakkundige schilder in Roeselare. Binnen- en buitenschilderwerk, renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
-    url: "/schilder-roeselare",
+      "Vakkundige schilder in Lichtervelde. Binnen- en buitenschilderwerk, behangwerken en renovatie. Vakervaring sinds 2008. Gratis offerte binnen 48u.",
+    url: "/schilder-lichtervelde",
   },
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "PaintingContractor",
-  "@id": `${SITE_URL}/#business`,
-  name: "RB Schilderwerken",
-  description:
-    "Vakkundige schilder actief in Roeselare. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Rufino.",
-  url: `${SITE_URL}/schilder-roeselare`,
-  telephone: "+32474271575",
-  email: "info@rbschilderwerken.be",
-  image: `${SITE_URL}/og.png`,
-  logo: `${SITE_URL}/assets/logo.png`,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Langepijpestraat 1 bus v009",
-    addressLocality: "Torhout",
-    postalCode: "8820",
-    addressRegion: "West-Vlaanderen",
-    addressCountry: "BE",
-  },
-  areaServed: [
-    { "@type": "City", name: "Roeselare" },
-    { "@type": "City", name: "Rumbeke" },
-    { "@type": "City", name: "Beveren" },
-    { "@type": "City", name: "Oekene" },
-    { "@type": "City", name: "Torhout" },
-    { "@type": "AdministrativeArea", name: "West-Vlaanderen" },
-  ],
-  serviceArea: {
-    "@type": "City",
-    name: "Roeselare",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Schilderwerk diensten Roeselare",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Binnenschilderwerk" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Buitenschilderwerk" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Behangwerken" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Renovatie & nieuwbouw" },
-      },
-    ],
-  },
-  priceRange: "$$",
-  currenciesAccepted: "EUR",
-  paymentAccepted: "Cash, Overschrijving",
 };
 
 const faqItems = [
   {
-    q: "Wat kost een schilder in Roeselare?",
-    a: "De prijs van een schilder in Roeselare hangt af van de oppervlakte, de staat van de ondergrond en de gewenste afwerking. Een eenvoudige muur in latex kost minder dan houtwerk dat eerst geschuurd en voorgestreken moet worden. Daarom werken we nooit met blinde forfaits: na een plaatsbezoek of op basis van uw foto's maken we een gedetailleerde offerte op met een duidelijke prijs per onderdeel, zodat u vooraf precies weet waar u aan toe bent.",
+    q: "Wat kost een schilder in Lichtervelde?",
+    a: "De prijs van een schilder in Lichtervelde hangt af van de oppervlakte, de staat van de ondergrond en de gewenste afwerking. Een eenvoudige muur in latex kost minder dan houtwerk dat eerst geschuurd en voorgestreken moet worden. Daarom werken we nooit met blinde forfaits: na een plaatsbezoek of op basis van uw foto's maakt RB Schilderwerken een gedetailleerde offerte met een duidelijke prijs per onderdeel, zodat u vooraf precies weet waar u aan toe bent.",
   },
   {
-    q: "Hoe snel kan RB Schilderwerken starten in Roeselare?",
-    a: "Omdat Roeselare en de deelgemeenten Rumbeke, Beveren en Oekene op korte rijafstand van onze thuisbasis in Torhout liggen, kunnen we doorgaans snel langskomen voor een opmeting. Na goedkeuring van de offerte plannen we uw project meestal binnen enkele weken in, afhankelijk van de omvang en het seizoen. Voor dringende of kleinere klussen kijken we steeds of er ruimte is om sneller te schakelen.",
+    q: "Hoe snel kan RB Schilderwerken starten in Lichtervelde?",
+    a: "Lichtervelde ligt op een steenworp van onze thuisbasis in Torhout, dus we zijn snel ter plaatse voor een opmeting. Na goedkeuring van de offerte plannen we uw project meestal binnen enkele weken in, afhankelijk van de omvang en het seizoen. Voor dringende of kleinere klussen bekijken we steeds of er ruimte is om sneller te schakelen.",
   },
   {
-    q: "Doet RB Schilderwerken zowel binnen als buiten in Roeselare?",
-    a: "Ja. In Roeselare verzorgen we zowel binnenschilderwerk, denk aan muren, plafonds, deuren en kasten, als buitenschilderwerk zoals gevels, ramen, houtwerk en dakgoten. Buitenwerk plannen we bij voorkeur in het juiste seizoen en bij gunstig weer, zodat de verf optimaal hecht en weerbestendig afgewerkt wordt.",
+    q: "Doet RB Schilderwerken zowel binnen als buiten in Lichtervelde?",
+    a: "Ja. In Lichtervelde verzorgen we zowel binnenschilderwerk — muren, plafonds, deuren en kasten — als buitenschilderwerk zoals gevels, ramen, houtwerk en dakgoten. Veel woningen rond het station en in de woonwijken vragen net die combinatie van een frisse binnenafwerking en weerbestendig buitenwerk. Buitenwerk plannen we bij voorkeur bij gunstig weer, zodat de verf optimaal hecht.",
   },
   {
-    q: "Werkt RB Schilderwerken ook voor renovaties in Roeselare?",
-    a: "Zeker. We werken in Roeselare zowel voor particulieren als aannemers bij renovaties en nieuwbouw. Van het plamuren en schuren tot het voorstrijken en de eindafwerking, we nemen de volledige schilderfase op ons en leveren netjes op binnen de afgesproken planning.",
+    q: "Werkt RB Schilderwerken ook in Wingene en de buurgemeenten?",
+    a: "Zeker. Naast Lichtervelde zijn we regelmatig actief in Wingene (inclusief Zwevezele), Torhout, Kortemark en Ardooie. Door die korte afstanden kunnen we flexibel inplannen en snel langskomen voor een opmeting of nazorg.",
   },
   {
-    q: "Hoe vraag ik een gratis offerte aan in Roeselare?",
+    q: "Hoe vraag ik een gratis offerte aan in Lichtervelde?",
     a: "Een gratis offerte aanvragen kan in enkele minuten. Stuur ons een foto of korte beschrijving van uw project via WhatsApp, telefoon of het contactformulier. U ontvangt binnen 48 uur een vrijblijvende offerte op maat, zonder enige verplichting.",
   },
 ];
@@ -125,19 +66,15 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Schilder Roeselare",
-      item: `${SITE_URL}/schilder-roeselare`,
+      name: "Schilder Lichtervelde",
+      item: `${SITE_URL}/schilder-lichtervelde`,
     },
   ],
 };
 
-export default function SchilderRoeselare() {
+export default function SchilderLichtervelde() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -149,7 +86,6 @@ export default function SchilderRoeselare() {
 
       <Navbar active="home" />
 
-      {/* HEADER + INTRO */}
       <section className="header-contact">
         <div className="container">
           <div
@@ -161,9 +97,9 @@ export default function SchilderRoeselare() {
               maxWidth: 900,
             }}
           >
-            <span className="eyebrow on-dark">Schilder in Roeselare</span>
+            <span className="eyebrow on-dark">Schilder in Lichtervelde</span>
             <h1 className="display" style={{ color: "var(--cream)" }}>
-              Schilder in Roeselare
+              Schilder in Lichtervelde
               <br />
               <span
                 style={{
@@ -176,31 +112,27 @@ export default function SchilderRoeselare() {
               </span>
             </h1>
             <p className="lede">
-              Op zoek naar een vakkundige schilder in Roeselare? RB
-              Schilderwerken verzorgt al het schilderwerk binnen en buiten, van
-              een frisse muur in de living tot een volledig herstelde gevel. Met
-              15 jaar vakervaring weet zaakvoerder Rufino dat een mooi resultaat
-              begint bij een grondige voorbereiding: degelijk afplakken,
-              schuren, ontvetten en voorstrijken voordat de eerste laag verf op
-              de muur komt. Of u nu een kamer een nieuwe look wil geven, uw
-              buitenschrijnwerk wil beschermen tegen weer en wind of een
-              volledige renovatie laat uitvoeren, u krijgt steeds dezelfde
-              zorgvuldige aanpak en een nette afwerking. We werken voor zowel
-              particulieren als aannemers in Roeselare en de deelgemeenten
-              Rumbeke, Beveren en Oekene, met heldere afspraken, propere werven
-              en respect voor uw woning. Vraag
-              vrijblijvend een offerte aan en ontdek wat eerlijk vakmanschap
-              voor uw project in Roeselare kan betekenen.
+              Op zoek naar een vakkundige schilder in Lichtervelde? RB
+              Schilderwerken werkt vanuit Torhout en is in een kwartier ter
+              plaatse — of u nu in het centrum woont, vlakbij het station of in
+              een van de woonwijken rondom. Zaakvoerder Rufino schildert sinds
+              2008: grondig afplakken, schuren, ontvetten en voorstrijken vóór de
+              eerste laag verf. In Lichtervelde zien we vaak dezelfde mix:
+              classicistische gevels en ouder schrijnwerk dat bescherming vraagt,
+              naast nieuwere woningen die een strakke binnenafwerking willen.
+              We werken voor particulieren én aannemers, met heldere afspraken
+              en een propere werf. Vraag vrijblijvend een offerte aan en ontdek
+              wat eerlijk vakmanschap voor uw project in Lichtervelde kan
+              betekenen.
             </p>
           </div>
         </div>
       </section>
 
-      {/* DIENSTEN */}
       <section className="sec-white">
         <div className="container">
           <div className="sec-head">
-            <span className="eyebrow">Diensten in Roeselare</span>
+            <span className="eyebrow">Diensten in Lichtervelde</span>
             <h2 className="h2">
               Vier disciplines,
               <br />
@@ -208,7 +140,7 @@ export default function SchilderRoeselare() {
             </h2>
             <p className="lede">
               Van een muurtje in de living tot een volledige gevel: elk project
-              in Roeselare krijgt dezelfde voorbereiding en afwerking.
+              in Lichtervelde krijgt dezelfde voorbereiding en afwerking.
             </p>
           </div>
 
@@ -224,9 +156,10 @@ export default function SchilderRoeselare() {
               <span className="srv-num">01</span>
               <h3 className="srv-title">Binnen­schilderwerk</h3>
               <p className="srv-body">
-                Muren, plafonds, deuren en kasten, strak afgeplakt en dampdicht
-                onderlegd, in twee tot drie lagen opgebouwd. Zo geven we woningen
-                en appartementen in Roeselare en Rumbeke een frisse uitstraling.
+                Muren, plafonds, deuren en kasten — strak afgeplakt en dampdicht
+                onderlegd, in twee tot drie lagen opgebouwd. Ideaal om
+                Lichterveldse woningen en appartementen een frisse, egale look
+                te geven.
               </p>
               <span className="srv-tags">Latex, lak, plafonds, deuren</span>
             </article>
@@ -235,8 +168,8 @@ export default function SchilderRoeselare() {
               <h3 className="srv-title">Buiten­schilderwerk</h3>
               <p className="srv-body">
                 Gevels, ramen, dakgoten en houtwerk. Volledig schuren, ontvetten
-                en weerbestendig afwerken. Beschermt het buitenschrijnwerk van
-                Roeselaarse woningen jarenlang tegen weer en wind.
+                en weerbestendig afwerken — belangrijk voor woningen langs de
+                doorgaande wegen en in de openere randen van Lichtervelde.
               </p>
               <span className="srv-tags">
                 Gevels, ramen, houtwerk, dakgoten
@@ -247,8 +180,8 @@ export default function SchilderRoeselare() {
               <h3 className="srv-title">Behang­werken</h3>
               <p className="srv-body">
                 Van structuurbehang tot fotobehang, met onzichtbare naden en
-                kaarsrechte patronen. Een geliefde afwerking bij interieurs in
-                Roeselare en omstreken.
+                kaarsrechte patronen. Een populaire manier om een living of
+                slaapkamer in Lichtervelde karakter te geven.
               </p>
               <span className="srv-tags">
                 Vlies, vinyl, fotobehang, texturen
@@ -260,8 +193,8 @@ export default function SchilderRoeselare() {
               <p className="srv-body">
                 Volledige afwerking voor aannemers en particulieren: plamuren,
                 schuren, schilderen, opgeleverd binnen planning. Ook voor
-                renovatie- en nieuwbouwprojecten in Roeselare en de
-                deelgemeenten.
+                renovatie- en nieuwbouwprojecten in Lichtervelde, Wingene en
+                Torhout.
               </p>
               <span className="srv-tags">
                 Plamuur, schuren, voorstrijken, oplevering
@@ -271,13 +204,12 @@ export default function SchilderRoeselare() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="sec-cream">
         <div className="container">
           <div className="sec-head">
             <span className="eyebrow">Veelgestelde vragen</span>
             <h2 className="h2">
-              Schilder in Roeselare,
+              Schilder in Lichtervelde,
               <br />
               alles wat u wil weten.
             </h2>
@@ -294,10 +226,17 @@ export default function SchilderRoeselare() {
               </div>
             ))}
           </div>
+
+          <p className="lede reveal" style={{ marginTop: 36, maxWidth: 760 }}>
+            Ook actief als{" "}
+            <Link href="/schilder-torhout">schilder in Torhout</Link> en in
+            Wingene en omstreken. Bekijk onze{" "}
+            <Link href="/realisaties">realisaties</Link> of{" "}
+            <Link href="/contact">vraag een offerte</Link> aan.
+          </p>
         </div>
       </section>
 
-      {/* CTA BAND */}
       <section className="sec-dark on-dark">
         <div
           className="container"
@@ -313,7 +252,7 @@ export default function SchilderRoeselare() {
             className="reveal"
             style={{ display: "flex", flexDirection: "column", gap: 22 }}
           >
-            <span className="eyebrow on-dark">Aan de slag in Roeselare</span>
+            <span className="eyebrow on-dark">Aan de slag in Lichtervelde</span>
             <h2 className="h2" style={{ color: "var(--cream)" }}>
               Klaar voor een
               <br />
@@ -329,7 +268,7 @@ export default function SchilderRoeselare() {
               afwerking?
             </h2>
             <p className="lede">
-              Stuur een foto of beschrijving van uw project in Roeselare. U
+              Stuur een foto of beschrijving van uw project in Lichtervelde. U
               krijgt binnen 48&nbsp;uur een vrijblijvende offerte op maat.
             </p>
           </div>

@@ -3,8 +3,12 @@ export const BUSINESS = {
   name: "RB Schilderwerken",
   legalName: "RB Schilderwerken",
   vatNumber: "BE 1026.683.929",
+  /** Juridische oprichting van de zaak */
   foundedDate: "2025-08-25",
   foundedLabel: "25/08/2025",
+  /** Vakervaring zaakvoerder Rufino */
+  experienceSince: 2008,
+  experienceLabel: "sinds 2008",
   email: "info@rbschilderwerken.be",
   phone: "+32 474 27 15 75",
   phoneTel: "+32474271575",

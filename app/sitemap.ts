@@ -4,7 +4,7 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 // Statische datum: enkel bijwerken wanneer de inhoud effectief wijzigt.
-const LAST_MODIFIED = "2026-06-27";
+const LAST_MODIFIED = "2026-08-11";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/schilder-roeselare`,
+      url: `${SITE_URL}/schilder-lichtervelde`,
       lastModified: LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.9,

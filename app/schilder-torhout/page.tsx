@@ -8,83 +8,18 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
 export const metadata: Metadata = {
-  title: "Schilder Torhout | RB Schilderwerken",
+  title: "Schilder Torhout",
   description:
-    "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
+    "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. Vakervaring sinds 2008. Gratis offerte binnen 48u.",
   alternates: {
     canonical: "/schilder-torhout",
   },
   openGraph: {
     title: "Schilder Torhout | RB Schilderwerken",
     description:
-      "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. 15 jaar vakervaring. Gratis offerte binnen 48u.",
+      "Vakkundige schilder in Torhout en Wijnendale. Binnen- en buitenschilderwerk, behangwerken en renovatie. Vakervaring sinds 2008. Gratis offerte binnen 48u.",
     url: "/schilder-torhout",
   },
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "PaintingContractor",
-  "@id": `${SITE_URL}/#business`,
-  name: "RB Schilderwerken",
-  description:
-    "Vakkundige schilder gevestigd in Torhout. Binnen- en buitenschilderwerk, behangwerken en renovatie, met 15 jaar vakervaring van zaakvoerder Rufino.",
-  url: `${SITE_URL}/schilder-torhout`,
-  telephone: "+32474271575",
-  email: "info@rbschilderwerken.be",
-  image: `${SITE_URL}/og.png`,
-  logo: `${SITE_URL}/assets/logo.png`,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Langepijpestraat 1 bus v009",
-    addressLocality: "Torhout",
-    postalCode: "8820",
-    addressRegion: "West-Vlaanderen",
-    addressCountry: "BE",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 51.0648,
-    longitude: 3.0977,
-  },
-  areaServed: [
-    { "@type": "City", name: "Torhout" },
-    { "@type": "City", name: "Wijnendale" },
-    { "@type": "City", name: "Lichtervelde" },
-    { "@type": "City", name: "Kortemark" },
-    { "@type": "City", name: "Ichtegem" },
-    { "@type": "City", name: "Zedelgem" },
-    { "@type": "AdministrativeArea", name: "West-Vlaanderen" },
-  ],
-  serviceArea: {
-    "@type": "City",
-    name: "Torhout",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Schilderwerk diensten Torhout",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Binnenschilderwerk" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Buitenschilderwerk" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Behangwerken" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Renovatie & nieuwbouw" },
-      },
-    ],
-  },
-  priceRange: "$$",
-  currenciesAccepted: "EUR",
-  paymentAccepted: "Cash, Overschrijving",
 };
 
 const faqItems = [
@@ -94,7 +29,7 @@ const faqItems = [
   },
   {
     q: "Werkt RB Schilderwerken ook in Wijnendale en de buurgemeenten?",
-    a: "Zeker. Onze thuisbasis ligt in Torhout, dus naast het centrum en de wijk Wijnendale werken we ook vlot in de buurgemeenten zoals Lichtervelde, Kortemark, Ichtegem en Zedelgem. Door die korte afstanden kunnen we snel langskomen voor een opmeting en flexibel inplannen.",
+    a: "Zeker. Onze thuisbasis ligt in Torhout, dus naast het centrum en de wijk Wijnendale werken we ook vlot in Lichtervelde, Wingene, Kortemark, Ichtegem en Zedelgem. Door die korte afstanden kunnen we snel langskomen voor een opmeting en flexibel inplannen.",
   },
   {
     q: "Hoe snel kan RB Schilderwerken starten in Torhout?",
@@ -142,10 +77,6 @@ export default function SchilderTorhout() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
@@ -155,7 +86,6 @@ export default function SchilderTorhout() {
 
       <Navbar active="home" />
 
-      {/* HEADER + INTRO */}
       <section className="header-contact">
         <div className="container">
           <div
@@ -185,23 +115,22 @@ export default function SchilderTorhout() {
               Op zoek naar een vakkundige schilder in Torhout? RB Schilderwerken
               is hier gevestigd en verzorgt al het schilderwerk binnen en
               buiten, van een frisse muur in de living tot een volledig
-              herstelde gevel. Met 15 jaar vakervaring weet zaakvoerder Rufino
-              dat
-              een mooi resultaat begint bij een grondige voorbereiding: degelijk
-              afplakken, schuren, ontvetten en voorstrijken voordat de eerste
-              laag verf op de muur komt. Omdat we in Torhout zelf zitten, zijn we
-              snel ter plaatse, of het nu gaat om het centrum, de wijk Wijnendale
-              of een buurgemeente zoals Lichtervelde, Kortemark, Ichtegem of
-              Zedelgem. Voor zowel particulieren als aannemers werken we met
-              heldere afspraken, propere werven en respect voor uw woning. Vraag
-              vrijblijvend een offerte aan en ontdek wat eerlijk vakmanschap voor
-              uw project in Torhout kan betekenen.
+              herstelde gevel. Zaakvoerder Rufino schildert sinds 2008 en weet
+              dat een mooi resultaat begint bij een grondige voorbereiding:
+              degelijk afplakken, schuren, ontvetten en voorstrijken voordat de
+              eerste laag verf op de muur komt. Omdat we in Torhout zelf zitten,
+              zijn we snel ter plaatse, of het nu gaat om het centrum, de wijk
+              Wijnendale of een buurgemeente zoals Lichtervelde, Wingene,
+              Kortemark, Ichtegem of Zedelgem. Voor zowel particulieren als
+              aannemers werken we met heldere afspraken, propere werven en
+              respect voor uw woning. Vraag vrijblijvend een offerte aan en
+              ontdek wat eerlijk vakmanschap voor uw project in Torhout kan
+              betekenen.
             </p>
           </div>
         </div>
       </section>
 
-      {/* DIENSTEN */}
       <section className="sec-white">
         <div className="container">
           <div className="sec-head">
@@ -276,7 +205,6 @@ export default function SchilderTorhout() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="sec-cream">
         <div className="container">
           <div className="sec-head">
@@ -299,10 +227,17 @@ export default function SchilderTorhout() {
               </div>
             ))}
           </div>
+
+          <p className="lede reveal" style={{ marginTop: 36, maxWidth: 760 }}>
+            Ook actief als{" "}
+            <Link href="/schilder-lichtervelde">schilder in Lichtervelde</Link>{" "}
+            en in Wingene en omstreken. Bekijk onze{" "}
+            <Link href="/realisaties">realisaties</Link> of{" "}
+            <Link href="/contact">vraag een offerte</Link> aan.
+          </p>
         </div>
       </section>
 
-      {/* CTA BAND */}
       <section className="sec-dark on-dark">
         <div
           className="container"

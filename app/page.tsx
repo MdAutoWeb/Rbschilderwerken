@@ -10,16 +10,16 @@ import CarouselDots from "@/components/CarouselDots";
 import { IMG } from "@/lib/assets";
 
 export const metadata: Metadata = {
-  title: "Schilder Torhout & West-Vlaanderen",
+  title: "Schilder Torhout, Lichtervelde & omstreken",
   description:
-    "RB Schilderwerken: vakkundige schilder in Torhout en heel West-Vlaanderen. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
+    "RB Schilderwerken: vakkundige schilder in Torhout, Lichtervelde, Wingene en omstreken. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie. Gratis offerte.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "RB Schilderwerken, schilder in Torhout & West-Vlaanderen",
+    title: "RB Schilderwerken, schilder in Torhout, Lichtervelde & omstreken",
     description:
-      "Vakkundig schilderwerk voor binnen & buiten. Nieuwbouw & renovatie. Actief in Torhout en heel West-Vlaanderen. Gratis offerte binnen 48 uur.",
+      "Vakkundig schilderwerk voor binnen & buiten. Nieuwbouw & renovatie. Actief in Torhout, Lichtervelde, Wingene en omstreken. Gratis offerte binnen 48 uur.",
     url: "/",
   },
 };
@@ -33,7 +33,7 @@ export default function Home() {
       <section className="sec-white hero-section">
         <div className="container hero-split">
           <div className="hero-split-copy">
-            <span className="eyebrow">Schilder in Torhout, sinds 2025</span>
+            <span className="eyebrow">Schilder in Torhout, sinds 2008</span>
             <h1 className="display">
               Schilderwerken
               <br />
@@ -42,8 +42,9 @@ export default function Home() {
               voorop staat.
             </h1>
             <p className="lede hero-split-lede">
-              Binnen en buiten, nieuwbouw en renovatie, heel West-Vlaanderen.
-              Vakmanschap waar de afwerking telt.
+              Binnen en buiten, nieuwbouw en renovatie. Actief in Torhout,
+              Lichtervelde, Wingene en omstreken. Vakmanschap waar de afwerking
+              telt.
             </p>
             <div className="hero-btns">
               <Link className="btn btn-gold" href="/contact">
@@ -87,7 +88,7 @@ export default function Home() {
                   lineHeight: 1,
                 }}
               >
-                2025
+                2008
               </div>
             </div>
             <div className="stat reveal d-1">
@@ -329,11 +330,11 @@ export default function Home() {
           >
             <p className="lede" style={{ margin: 0 }}>
               RB Schilderwerken is het schildersbedrijf van zaakvoerder Rufino,
-              gevestigd in Torhout. Rufino bouwde 15 jaar vakervaring op als
-              schilder en startte in 2025 zijn eigen zaak om dat vakmanschap
-              rechtstreeks bij particulieren en aannemers in West-Vlaanderen in
-              te zetten. Geen tussenpersonen, geen onderaanneming: u heeft één
-              vast aanspreekpunt dat zelf mee op de werf staat.
+              gevestigd in Torhout. Rufino schildert sinds 2008 en startte in
+              2025 zijn eigen zaak om dat vakmanschap rechtstreeks bij
+              particulieren en aannemers in Torhout, Lichtervelde, Wingene en
+              omstreken in te zetten. Geen tussenpersonen, geen onderaanneming:
+              u heeft één vast aanspreekpunt dat zelf mee op de werf staat.
             </p>
             <p className="lede" style={{ margin: 0 }}>
               Die ervaring zit vooral in de details die u pas later opmerkt: een
@@ -342,6 +343,12 @@ export default function Home() {
               een volledige renovatie, krijgt dezelfde voorbereiding, dezelfde
               propere werf en dezelfde eerlijke nazorg. Zo weet u vooraf wat u
               krijgt en blijft het resultaat ook na de oplevering kloppen.
+            </p>
+            <p className="lede" style={{ margin: 0 }}>
+              Meer info als{" "}
+              <Link href="/schilder-torhout">schilder in Torhout</Link> of{" "}
+              <Link href="/schilder-lichtervelde">schilder in Lichtervelde</Link>
+              .
             </p>
           </div>
         </div>
