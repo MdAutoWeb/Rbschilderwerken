@@ -59,7 +59,7 @@ export default function Home() {
         </div>
         <div className="container hero-split">
           <div className="hero-split-copy on-dark">
-            <span className="eyebrow on-dark">Schilder in Torhout, sinds 2008</span>
+            <span className="eyebrow on-dark">Schilder in Torhout, sinds 2025</span>
             <h1 className="display">
               Schilderwerken
               <br />
@@ -197,7 +197,6 @@ export default function Home() {
                   alt="Binnenschilderwerk, strakke witte wanden"
                   fill
                   sizes="(max-width: 640px) 78vw, 25vw"
-                  style={{ objectFit: "cover", objectPosition: "center 30%" }}
                 />
               </div>
               <div className="srv-content">
@@ -213,11 +212,10 @@ export default function Home() {
             <article className="service reveal d-1">
               <div className="srv-media">
                 <Image
-                  src="/assets/voor-na/buiten-zijgevel-na.jpeg"
-                  alt="Buitenschilderwerk, geschilderde zijgevel"
+                  src={IMG.voorNa.buitenGevelNa}
+                  alt="Buitenschilderwerk, geschilderde gevel"
                   fill
                   sizes="(max-width: 640px) 78vw, 25vw"
-                  style={{ objectFit: "cover", objectPosition: "center 40%" }}
                 />
               </div>
               <div className="srv-content">
@@ -239,7 +237,6 @@ export default function Home() {
                   alt="Behangwerken en wandafwerking in slaapkamer"
                   fill
                   sizes="(max-width: 640px) 78vw, 25vw"
-                  style={{ objectFit: "cover", objectPosition: "center 35%" }}
                 />
               </div>
               <div className="srv-content">
@@ -261,7 +258,6 @@ export default function Home() {
                   alt="Renovatie en nieuwbouw, keukenafwerking"
                   fill
                   sizes="(max-width: 640px) 78vw, 25vw"
-                  style={{ objectFit: "cover", objectPosition: "center 40%" }}
                 />
               </div>
               <div className="srv-content">
