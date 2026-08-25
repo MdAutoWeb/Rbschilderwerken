@@ -45,6 +45,11 @@ export default function Footer() {
               <summary>Regio&apos;s</summary>
               <Link href="/schilder-torhout">Schilder Torhout</Link>
               <Link href="/schilder-lichtervelde">Schilder Lichtervelde</Link>
+              <Link href="/schilder-zedelgem">Schilder Zedelgem</Link>
+              <Link href="/schilder-ichtegem">Schilder Ichtegem</Link>
+              <Link href="/schilder-koekelare">Schilder Koekelare</Link>
+              <Link href="/schilder-kortemark">Schilder Kortemark</Link>
+              <Link href="/schilder-oostkamp">Schilder Oostkamp</Link>
             </details>
           </div>
         </div>

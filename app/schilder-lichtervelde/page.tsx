@@ -4,8 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
+import { getServiceSchema, getSiteUrl } from "@/lib/schema";
+
+const SITE_URL = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Schilder Lichtervelde",
@@ -72,6 +73,14 @@ const breadcrumbSchema = {
   ],
 };
 
+const serviceSchema = getServiceSchema({
+  city: "Lichtervelde",
+  slug: "schilder-lichtervelde",
+  description:
+    "Binnen- en buitenschilderwerk, behangwerken en renovatieafwerking in Lichtervelde en omstreken.",
+  siteUrl: SITE_URL,
+});
+
 export default function SchilderLichtervelde() {
   return (
     <>
@@ -82,6 +91,10 @@ export default function SchilderLichtervelde() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
       <Navbar active="home" />

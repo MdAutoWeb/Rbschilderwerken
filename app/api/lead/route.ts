@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { processLead } from "@/lib/leads/pipeline";
 import { validateLead } from "@/lib/leads/validate";
 
-/** Legacy endpoint — zelfde pipeline als /api/lead */
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -18,7 +17,7 @@ export async function POST(req: Request) {
     const result = await processLead(parsed.data);
 
     if (!result.ok) {
-      console.error("[api/contact] pipeline failed", result.error);
+      console.error("[api/lead] pipeline failed", result.error);
       return NextResponse.json(
         { ok: false, error: "Verzenden mislukt" },
         { status: 500 }
@@ -27,7 +26,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("[api/contact] exception", error);
+    console.error("[api/lead] exception", error);
     return NextResponse.json(
       { ok: false, error: "Verzenden mislukt" },
       { status: 500 }

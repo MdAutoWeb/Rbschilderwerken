@@ -22,4 +22,6 @@ export const BUSINESS = {
   },
   dpoEmail: "info@rbschilderwerken.be",
   website: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be",
+  /** Google Maps Place ID */
+  googlePlaceId: "ChIJMR_MSGtNw0cRdLKuCn90mEo",
 } as const;

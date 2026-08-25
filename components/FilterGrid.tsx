@@ -16,11 +16,21 @@ interface Project {
   variant: "wide" | "tall" | "square" | "";
   visual: React.ReactNode;
   title: string;
+  /** Caption: kamertype · gemeente · uitdaging */
+  caption?: string;
   desc?: string;
   extra?: React.ReactNode;
 }
 
-function SinglePhoto({ src, alt }: { src: string; alt: string }) {
+function SinglePhoto({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
   return (
     <div className="single-img">
       <Image
@@ -28,6 +38,7 @@ function SinglePhoto({ src, alt }: { src: string; alt: string }) {
         alt={alt}
         fill
         sizes="(max-width: 800px) 100vw, 66vw"
+        priority={priority}
         style={{ objectFit: "cover", objectPosition: "center" }}
       />
     </div>
@@ -42,6 +53,7 @@ function VoorNa({
   naPosition,
   muteBefore = true,
   initialValue,
+  priority = false,
 }: {
   voor: string;
   na: string;
@@ -50,6 +62,7 @@ function VoorNa({
   naPosition?: string;
   muteBefore?: boolean;
   initialValue?: number;
+  priority?: boolean;
 }) {
   return (
     <BeforeAfter
@@ -60,6 +73,7 @@ function VoorNa({
           alt={`${label} vóór renovatie`}
           variant={muteBefore ? "before" : "default"}
           objectPosition={voorPosition}
+          priority={priority}
         />
       }
       afterContent={
@@ -68,6 +82,7 @@ function VoorNa({
           alt={`${label} na renovatie`}
           variant="after"
           objectPosition={naPosition}
+          priority={priority}
         />
       }
       ariaLabel={`Vergelijk ${label} voor en na`}
@@ -87,9 +102,11 @@ function buildProjects(): Project[] {
           voor={IMG.voorNa.buitenGevelVoor}
           na={IMG.voorNa.buitenGevelNa}
           label="Voorgevel"
+          priority
         />
       ),
       title: "Voorgevel\nvoor & na",
+      caption: "Voorgevel · Torhout e.o. · Verweerd houtwerk aan deur en ramen",
       desc: "Buitenschilderwerk aan voordeur en ramen: van verweerd houtwerk naar een strakke, weerbestendige grijze afwerking.",
     },
     {
@@ -105,6 +122,7 @@ function buildProjects(): Project[] {
         />
       ),
       title: "Buitendeur\nopnieuw geschilderd",
+      caption: "Voordeur · West-Vlaanderen · Beschadigd hout en afbladderende lak",
       desc: "Houten voordeur geschuurd, gerepareerd en opnieuw afgewerkt in een duurzame buitenverf.",
     },
     {
@@ -120,6 +138,7 @@ function buildProjects(): Project[] {
         />
       ),
       title: "Buitenraam\nvoor & na",
+      caption: "Raamkozijn · Torhout e.o. · Grijze, poreuze ondergrond",
       desc: "Kozijn en raamwerk volledig voorbereid en afgewerkt met weerbestendige verf in een moderne grijstint.",
     },
     {
@@ -139,6 +158,7 @@ function buildProjects(): Project[] {
         />
       ),
       title: "Zijgevel\nvoor & na",
+      caption: "Zijgevel · Torhout e.o. · Ramen, kozijnen en dakgoten verweerd",
       desc: "Ramen, kozijnen en dakgoten aan de zijgevel van een woning opnieuw geschilderd in een egaal donkergrijs.",
     },
     {
@@ -153,6 +173,7 @@ function buildProjects(): Project[] {
         />
       ),
       title: "Ramen & deur\nin frisse kleur",
+      caption: "Gevel · West-Vlaanderen · Volledige buitenafwerking schrijnwerk",
       desc: "Buitenschilderwerk van gevel, ramen en voordeur van een woning: alles geschuurd, geprimerd en weerbestendig afgewerkt in een frisse kleur.",
     },
     {
@@ -162,6 +183,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.badkamerVoor} na={IMG.voorNa.badkamerNa} label="Badkamer" />,
       title: "Badkamer volledig\nvernieuwd",
+      caption: "Badkamer · Torhout e.o. · Vochtplekken en verouderde latex",
       desc: "Volledige renovatie van een badkamer met vochtbestendige, schimmelwerende afwerking op muren en plafond.",
     },
     {
@@ -171,6 +193,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.livingVoor} na={IMG.voorNa.livingNa} label="Living" />,
       title: "Living in\nnieuw jasje",
+      caption: "Living · West-Vlaanderen · Vlekken en ongelijke oude lagen",
       desc: "Living van een gezinswoning opnieuw geschilderd, van het bijwerken van de muren tot een egale eindlaag in latex.",
     },
     {
@@ -180,6 +203,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.renovatieVoor} na={IMG.voorNa.renovatieNa} label="Renovatie" />,
       title: "Volledige\nkamerrenovatie",
+      caption: "Kamer · Torhout e.o. · Plamuurwerk na verbouwing",
       desc: "Volledige kamerrenovatie waarbij muren en plafond werden geplamuurd, geschuurd en in meerdere lagen afgewerkt.",
     },
     {
@@ -189,6 +213,7 @@ function buildProjects(): Project[] {
       variant: "tall",
       visual: <VoorNa voor={IMG.voorNa.wcVoor} na={IMG.voorNa.wcNa} label="WC" />,
       title: "WC opgefrist\nvoor & na",
+      caption: "Toilet · West-Vlaanderen · Slijtage en lastig reinigbare muur",
       desc: "Toilet opgefrist met een frisse, goed reinigbare muurafwerking; het verschil voor en na is meteen zichtbaar.",
     },
     {
@@ -198,6 +223,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.keuken} alt="Keuken na schilderwerk" />,
       title: "Keuken strak\nafgewerkt",
+      caption: "Keuken · Torhout e.o. · Vetvlekken en slijtage rond kookzone",
       desc: "Keuken strak geschilderd met een vetwerende, goed afneembare verf op muren en plafond.",
     },
     {
@@ -207,6 +233,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.living} alt="Living na schilderwerk" />,
       title: "Living\nstrak afgewerkt",
+      caption: "Living · West-Vlaanderen · Egale tint, strakke randen",
       desc: "Living afgewerkt in een warme, egale tint met strak afgelijnde plafond- en muurranden.",
     },
     {
@@ -216,6 +243,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.traphal} alt="Traphal na renovatie" />,
       title: "Traphal & overloop\nvolledig vernieuwd",
+      caption: "Traphal · Torhout e.o. · Hoge muren en lastig houtwerk",
       desc: "Traphal en overloop volledig vernieuwd, inclusief het lastig bereikbare houtwerk en de hoge muurvlakken.",
     },
     {
@@ -225,6 +253,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.slaapkamer} alt="Slaapkamer na schilderwerk" />,
       title: "Slaapkamer in\nzachte tinten",
+      caption: "Slaapkamer · West-Vlaanderen · Mat plafond, rustige muren",
       desc: "Slaapkamer geschilderd in zachte, rustgevende tinten met een mat afgewerkt plafond.",
     },
     {
@@ -234,6 +263,7 @@ function buildProjects(): Project[] {
       variant: "wide",
       visual: <SinglePhoto src={IMG.renovatie.slaapkamer2} alt="Tweede slaapkamer na schilderwerk" />,
       title: "Tweede slaapkamer,\néén palet",
+      caption: "Slaapkamer · Torhout e.o. · Doorlopend kleurenpalet",
       desc: "Tweede slaapkamer afgewerkt in één doorlopend kleurenpalet voor een rustige, samenhangende uitstraling.",
     },
     {
@@ -247,11 +277,12 @@ function buildProjects(): Project[] {
             src={IMG.voorNa.deur}
             alt="Deuren voor en na schilderwerk"
             fill
-            sizes="100vw"
+            sizes="(max-width: 1240px) 100vw, 1240px"
           />
         </div>
       ),
       title: "Deuren & kozijnen\nopnieuw afgewerkt",
+      caption: "Binnendeuren · West-Vlaanderen · Geschuurd, geprimerd, opnieuw gelakt",
       desc: "Binnendeuren en kozijnen geschuurd, geprimerd en opnieuw gelakt voor een strakke, duurzame afwerking.",
       extra: (
         <Link className="btn btn-outline-dark btn-sm" href="/contact">
@@ -301,6 +332,14 @@ export default function FilterGrid() {
             >
               <div style={p.id === "deur" ? { display: "flex", flexDirection: "column", gap: 4, flex: 1 } : undefined}>
                 <h3 className="ttl" style={{ whiteSpace: "pre-line" }}>{p.title}</h3>
+                {p.caption ? (
+                  <p
+                    className="ttl-desc"
+                    style={{ fontSize: 13, opacity: 0.75, marginBottom: 4 }}
+                  >
+                    {p.caption}
+                  </p>
+                ) : null}
                 {p.desc ? <p className="ttl-desc">{p.desc}</p> : null}
               </div>
               {p.extra}

@@ -3,8 +3,17 @@ import type { MetadataRoute } from "next";
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
 
-// Statische datum: enkel bijwerken wanneer de inhoud effectief wijzigt.
-const LAST_MODIFIED = "2026-08-11";
+const LAST_MODIFIED = "2026-08-25";
+
+const LOCAL_PAGES = [
+  "schilder-torhout",
+  "schilder-lichtervelde",
+  "schilder-zedelgem",
+  "schilder-ichtegem",
+  "schilder-koekelare",
+  "schilder-kortemark",
+  "schilder-oostkamp",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -14,18 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    {
-      url: `${SITE_URL}/schilder-torhout`,
+    ...LOCAL_PAGES.map((slug) => ({
+      url: `${SITE_URL}/${slug}`,
       lastModified: LAST_MODIFIED,
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/schilder-lichtervelde`,
-      lastModified: LAST_MODIFIED,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    })),
     {
       url: `${SITE_URL}/realisaties`,
       lastModified: LAST_MODIFIED,

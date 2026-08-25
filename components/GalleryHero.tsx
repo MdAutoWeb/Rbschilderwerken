@@ -6,11 +6,20 @@ import { IMG } from "@/lib/assets";
 
 const PANELS = [
   {
+    src: "/assets/voor-na/buiten-zijgevel-na.jpeg",
+    alt: "Buitenschilderwerk zijgevel, RB Schilderwerken Torhout",
+    label: "Buitenwerken",
+    count: 1,
+    pos: "center 35%",
+    hideFoot: true,
+  },
+  {
     src: IMG.renovatie.keuken,
     alt: "Keuken renovatie, RB Schilderwerken Torhout",
     label: "Keuken Renovatie",
     count: 4,
     pos: "center 20%",
+    hideFoot: false,
   },
   {
     src: IMG.renovatie.badkamer,
@@ -18,6 +27,7 @@ const PANELS = [
     label: "Badkamer Renovatie",
     count: 6,
     pos: "center top",
+    hideFoot: false,
   },
   {
     src: IMG.renovatie.living,
@@ -25,6 +35,7 @@ const PANELS = [
     label: "Woonkamer",
     count: 3,
     pos: "center 25%",
+    hideFoot: false,
   },
 ] as const;
 
@@ -32,10 +43,7 @@ export default function GalleryHero() {
   const [active, setActive] = useState(0);
 
   return (
-    <section
-      className="gh-wrap gh-wrap-fill"
-      onMouseLeave={() => setActive(0)}
-    >
+    <section className="gh-wrap gh-wrap-fill" onMouseLeave={() => setActive(0)}>
       {PANELS.map((panel, i) => {
         const isOpen = active === i;
         return (
@@ -54,6 +62,7 @@ export default function GalleryHero() {
                 alt={panel.alt}
                 fill
                 priority={i === 0}
+                fetchPriority={i === 0 ? "high" : "auto"}
                 sizes="(max-width: 640px) 92vw, 50vw"
                 style={{ objectFit: "cover", objectPosition: panel.pos }}
               />
@@ -70,10 +79,12 @@ export default function GalleryHero() {
               <span className="gh-vert">{panel.label}</span>
             </div>
 
-            {/* Active bottom bar: project name */}
-            <div className="gh-foot">
-              <span className="gh-foot-name">{panel.label}</span>
-            </div>
+            {/* Active bottom bar: project name (hidden when logo sits in photo) */}
+            {!panel.hideFoot ? (
+              <div className="gh-foot">
+                <span className="gh-foot-name">{panel.label}</span>
+              </div>
+            ) : null}
           </button>
         );
       })}

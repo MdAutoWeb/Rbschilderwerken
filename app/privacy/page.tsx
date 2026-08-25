@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Privacybeleid",
   description:
     "Privacybeleid van RB Schilderwerken (Torhout). GDPR-conform: welke gegevens we verwerken, waarom, uw rechten en contact.",
+  alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
 };
 

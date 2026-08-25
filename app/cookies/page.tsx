@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Cookiebeleid",
   description:
     "Cookiebeleid van RB Schilderwerken: enkel functionele cookies, geen tracking. Inclusief informatie over Google Maps op de contactpagina.",
+  alternates: { canonical: "/cookies" },
   robots: { index: true, follow: true },
 };
 

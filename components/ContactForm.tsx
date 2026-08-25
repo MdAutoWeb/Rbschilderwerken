@@ -17,12 +17,13 @@ export default function ContactForm() {
       naam: formData.get("naam"),
       email: formData.get("email"),
       tel: formData.get("tel"),
+      gemeente: formData.get("gemeente"),
       type: formData.get("type"),
       bericht: formData.get("bericht"),
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -63,6 +64,18 @@ export default function ContactForm() {
       <div className="field">
         <label htmlFor="email">Email <span className="req">*</span></label>
         <input id="email" name="email" type="email" required placeholder="u@voorbeeld.be" />
+      </div>
+
+      <div className="field">
+        <label htmlFor="gemeente">Gemeente <span className="req">*</span></label>
+        <input
+          id="gemeente"
+          name="gemeente"
+          type="text"
+          required
+          placeholder="Bv. Torhout, Lichtervelde, Zedelgem…"
+          autoComplete="address-level2"
+        />
       </div>
 
       <div className="field">

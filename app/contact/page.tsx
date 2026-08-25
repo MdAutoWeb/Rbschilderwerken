@@ -272,26 +272,54 @@ export default function Contact() {
               Werkgebied
             </h3>
             <p className="lede" style={{ margin: 0 }}>
-              Vanuit onze thuisbasis in Torhout zijn we vlot ter plaatse in
-              Wijnendale, Lichtervelde, Wingene (inclusief Zwevezele) en
-              buurgemeenten zoals Kortemark, Ichtegem, Zedelgem en Ardooie.
-              Bekijk de pagina van uw streek voor meer info en een gerichte
-              offerte.
+              Vanuit Torhout zijn we vlot ter plaatse in Lichtervelde, Zedelgem
+              (Aartrijke, Loppem, Veldegem), Ichtegem (Bekegem, Eernegem),
+              Koekelare (Bovekerke, Zande), Kortemark (Handzame, Werken, Zarren)
+              en Oostkamp (Hertsberge, Ruddervoorde, Waardamme). Bekijk de pagina
+              van uw streek voor meer info.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
               <Link
                 className="btn btn-outline-dark btn-sm"
                 href="/schilder-torhout"
               >
-                Schilder Torhout
-                <span className="arrow" aria-hidden="true"></span>
+                Torhout
               </Link>
               <Link
                 className="btn btn-outline-dark btn-sm"
                 href="/schilder-lichtervelde"
               >
-                Schilder Lichtervelde
-                <span className="arrow" aria-hidden="true"></span>
+                Lichtervelde
+              </Link>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-zedelgem"
+              >
+                Zedelgem
+              </Link>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-ichtegem"
+              >
+                Ichtegem
+              </Link>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-koekelare"
+              >
+                Koekelare
+              </Link>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-kortemark"
+              >
+                Kortemark
+              </Link>
+              <Link
+                className="btn btn-outline-dark btn-sm"
+                href="/schilder-oostkamp"
+              >
+                Oostkamp
               </Link>
             </div>
           </div>

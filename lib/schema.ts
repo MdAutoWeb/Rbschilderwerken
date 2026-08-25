@@ -6,15 +6,33 @@ export function getSiteUrl(): string {
   );
 }
 
-/** LocalBusiness JSON-LD — homepage, contact en sitewide via root layout */
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS.address.full)}&query_place_id=${BUSINESS.googlePlaceId}`;
+
+/** Iframe-embed zonder API-key (adres-query). Place ID blijft voor open-link + hasMap. */
+const MAPS_EMBED_URL =
+  "https://maps.google.com/maps?q=Langepijpestraat+1,+8820+Torhout,+Belgi%C3%AB&t=&z=15&ie=UTF8&iwloc=&output=embed&hl=nl";
+
+export { MAPS_EMBED_URL, MAPS_URL };
+
+function logoImageObject(siteUrl: string) {
+  return {
+    "@type": "ImageObject",
+    url: `${siteUrl}/assets/logo.png`,
+    width: 512,
+    height: 512,
+    caption: "Logo RB Schilderwerken",
+  };
+}
+
+/** HousePainter JSON-LD — sitewide via root layout */
 export function getLocalBusinessSchema(siteUrl = getSiteUrl()) {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "HousePainter",
     "@id": `${siteUrl}/#business`,
     name: BUSINESS.name,
-    image: `${siteUrl}/assets/logo.png`,
-    logo: `${siteUrl}/assets/logo.png`,
+    image: logoImageObject(siteUrl),
+    logo: logoImageObject(siteUrl),
     telephone: BUSINESS.phoneTel,
     email: BUSINESS.email,
     address: {
@@ -31,20 +49,36 @@ export function getLocalBusinessSchema(siteUrl = getSiteUrl()) {
       "Lichtervelde",
       "Wingene",
       "Zwevezele",
-      "Kortemark",
-      "Ichtegem",
       "Zedelgem",
+      "Aartrijke",
+      "Loppem",
+      "Veldegem",
+      "Ichtegem",
+      "Bekegem",
+      "Eernegem",
+      "Koekelare",
+      "Bovekerke",
+      "Zande",
+      "Kortemark",
+      "Handzame",
+      "Werken",
+      "Zarren",
+      "Oostkamp",
+      "Hertsberge",
+      "Ruddervoorde",
+      "Waardamme",
       "Ardooie",
     ],
     url: siteUrl,
     priceRange: "€€",
     description:
-      "Vakkundige schilderwerken in Torhout, Lichtervelde, Wingene en omstreken. Binnenschilderwerk, buitenschilderwerk, behangwerken en renovatie.",
+      "Vakkundige schilderwerken in Torhout, Lichtervelde, Zedelgem, Ichtegem, Koekelare, Kortemark, Oostkamp en omstreken.",
     geo: {
       "@type": "GeoCoordinates",
       latitude: 51.0648,
       longitude: 3.0977,
     },
+    hasMap: MAPS_URL,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -80,6 +114,50 @@ export function getWebSiteSchema(siteUrl = getSiteUrl()) {
     name: BUSINESS.name,
     inLanguage: "nl-BE",
     publisher: { "@id": `${siteUrl}/#business` },
+  };
+}
+
+export function getWebPageSchema(options: {
+  path: string;
+  name: string;
+  description: string;
+  siteUrl?: string;
+}) {
+  const siteUrl = options.siteUrl ?? getSiteUrl();
+  const url = `${siteUrl}${options.path === "/" ? "" : options.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url === siteUrl ? siteUrl : url}#webpage`,
+    url,
+    name: options.name,
+    description: options.description,
+    inLanguage: "nl-BE",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#business` },
+  };
+}
+
+export function getServiceSchema(options: {
+  city: string;
+  slug: string;
+  description: string;
+  siteUrl?: string;
+}) {
+  const siteUrl = options.siteUrl ?? getSiteUrl();
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/${options.slug}#service`,
+    name: `Schilderwerken ${options.city}`,
+    serviceType: "Schilderwerken",
+    description: options.description,
+    provider: { "@id": `${siteUrl}/#business` },
+    areaServed: {
+      "@type": "City",
+      name: options.city,
+    },
+    url: `${siteUrl}/${options.slug}`,
   };
 }
 

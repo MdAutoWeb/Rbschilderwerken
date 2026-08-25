@@ -29,6 +29,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: clip;
 }
 body {
   font-family: var(--f-body);
@@ -275,6 +276,7 @@ h4 {
 /* ─────────── Sections ─────────── */
 section {
   padding: clamp(64px, 9vw, 120px) 0;
+  position: relative;
 }
 .sec-dark {
   background: var(--espresso);
@@ -287,6 +289,42 @@ section {
 .sec-white {
   background: var(--white);
   color: var(--ink);
+}
+
+/* Subtiele vloei enkel tussen lichte secties — donker blijft strak */
+.sec-white + .sec-cream {
+  background: linear-gradient(
+    180deg,
+    var(--white) 0%,
+    color-mix(in srgb, var(--white) 50%, var(--cream)) 48px,
+    var(--cream) 88px,
+    var(--cream) 100%
+  );
+}
+.sec-cream + .sec-white {
+  background: linear-gradient(
+    180deg,
+    var(--cream) 0%,
+    color-mix(in srgb, var(--cream) 50%, var(--white)) 48px,
+    var(--white) 88px,
+    var(--white) 100%
+  );
+}
+
+/* Korte uitvloei aan onderkant lichte sectie → donker (niet op dark zelf) */
+.sec-blend-out-dark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--espresso) 100%
+  );
+  pointer-events: none;
 }
 
 .sec-head {
@@ -433,7 +471,7 @@ footer {
   background: var(--espresso);
   color: var(--cream);
   padding: 64px 0 32px;
-  border-top: 1px solid var(--rule-dark);
+  border-top: none;
 }
 .footer-grid {
   display: grid;
@@ -547,7 +585,9 @@ footer {
   align-items: center;
   justify-content: center;
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
-  transition: transform 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.25s ease;
 }
 .wa-float:hover {
   transform: scale(1.08);
@@ -604,21 +644,35 @@ footer {
 .service {
   background: var(--white);
   border: 1px solid var(--gold-deep);
-  padding: 28px 26px 32px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0;
   border-radius: 2px;
+  overflow: hidden;
   transition:
     background 0.25s ease,
     transform 0.25s ease,
     box-shadow 0.25s ease;
-  min-height: 280px;
+  min-height: 0;
 }
 .service:hover {
   background: var(--cream);
   transform: translateY(-2px);
   box-shadow: 0 20px 40px -28px rgba(26, 13, 2, 0.3);
+}
+.srv-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--cream-2);
+  overflow: hidden;
+}
+.srv-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 22px 26px;
+  flex: 1;
 }
 .srv-num {
   font-size: 12px;
@@ -632,7 +686,7 @@ footer {
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--ink);
-  margin-top: 4px;
+  margin-top: 0;
 }
 .srv-body {
   font-size: 14px;
@@ -651,25 +705,78 @@ footer {
   border-top: 1px solid var(--rule);
 }
 
-/* ─────────── Home: Hero (tekst + ovaal) ─────────── */
+/* ─────────── Home: Hero (tekst + gallery) ─────────── */
 .hero-section {
-  padding-top: clamp(48px, 7vw, 88px);
-  padding-bottom: clamp(56px, 8vw, 112px);
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+.hero-section-photo {
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+  background: var(--espresso-deep);
+  color: var(--cream);
+}
+.hero-section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-section-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(17, 8, 0, 0.82) 0%,
+    rgba(17, 8, 0, 0.55) 38%,
+    rgba(17, 8, 0, 0.22) 62%,
+    rgba(17, 8, 0, 0.12) 100%
+  );
+  pointer-events: none;
+}
+.hero-section-photo > .container {
+  position: relative;
+  z-index: 1;
+}
+.hero-section-photo > .container.hero-split {
+  padding-right: 0;
+  gap: clamp(64px, 8.5vw, 128px);
+}
+.hero-section-photo .hero-accordion-wrap {
+  margin-right: clamp(-52px, -5.5vw, -28px);
 }
 .hero-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(28px, 5vw, 72px);
+  gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
 .hero-split-copy {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   gap: 28px;
   max-width: 560px;
+  min-width: 0;
+}
+.hero-split-copy.on-dark .display {
+  color: var(--cream);
+}
+.hero-split-copy.on-dark .display .accent {
+  color: var(--gold-light);
+}
+.hero-split-copy.on-dark .lede {
+  color: rgba(245, 236, 220, 0.88);
+  max-width: 42ch;
 }
 .hero-split-lede {
   font-size: clamp(17px, 1.5vw, 21px);
+}
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .hero-split-caption {
   margin: 0;
@@ -752,13 +859,22 @@ footer {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 1px 4px rgba(26, 13, 2, 0.25);
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 .hero-oval-dot.is-active {
   background: var(--gold-light);
   transform: scale(1.2);
 }
 @media (max-width: 900px) {
+  .hero-section-photo > .container.hero-split {
+    padding-right: var(--pad-x);
+    gap: clamp(28px, 5vw, 48px);
+  }
+  .hero-section-photo .hero-accordion-wrap {
+    margin-right: 0;
+  }
   .hero-split {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -767,6 +883,7 @@ footer {
   .hero-split-copy {
     max-width: none;
     align-items: center;
+    text-align: center;
   }
   .hero-split-caption {
     justify-content: center;
@@ -781,8 +898,8 @@ footer {
     height: min(300px, 82vw);
   }
   .hero-accordion-wrap {
-    width: min(92vw, 480px);
-    height: clamp(300px, 55vw, 420px);
+    width: min(92vw, 520px);
+    height: clamp(380px, 62vw, 500px);
   }
 }
 
@@ -1128,7 +1245,12 @@ footer {
 
 /* ─────────── Contact: WhatsApp card ─────────── */
 .wa-card {
-  background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-light));
+  background: linear-gradient(
+    135deg,
+    var(--gold-deep),
+    var(--gold),
+    var(--gold-light)
+  );
   color: var(--espresso);
   border-radius: 4px;
   padding: clamp(28px, 4vw, 44px) clamp(28px, 4vw, 48px);
@@ -1526,7 +1648,9 @@ footer {
   height: 8px;
   border-radius: 50%;
   background: rgba(26, 13, 2, 0.22);
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 .carousel-dot.is-active::before {
   background: var(--gold);
@@ -1609,8 +1733,9 @@ footer {
 /* ─────────── Gallery Hero (accordion) ─────────── */
 .hero-accordion-wrap {
   position: relative;
-  width: clamp(280px, 32vw, 440px);
-  height: clamp(720px, 96vh, 1080px);
+  width: clamp(380px, 42vw, 580px);
+  height: clamp(720px, 92vh, 1040px);
+  max-width: 100%;
   flex-shrink: 0;
   border-radius: 40px;
   overflow: hidden;
@@ -1684,7 +1809,7 @@ footer {
     to top,
     rgba(0, 0, 0, 0.82) 0%,
     rgba(0, 0, 0, 0.18) 45%,
-    rgba(0, 0, 0, 0.0) 100%
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
@@ -1757,7 +1882,9 @@ footer {
   gap: 16px;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.3s ease 0.07s, transform 0.3s ease 0.07s;
+  transition:
+    opacity 0.3s ease 0.07s,
+    transform 0.3s ease 0.07s;
   pointer-events: none;
 }
 .gh-panel.is-open .gh-foot {
@@ -1824,7 +1951,9 @@ footer {
   height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 .gh-dot.is-active::before {
   background: var(--gold-light);

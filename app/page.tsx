@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,7 +8,9 @@ import BeforeAfter from "@/components/BeforeAfter";
 import ProjectImage from "@/components/ProjectImage";
 import GalleryHero from "@/components/GalleryHero";
 import CarouselDots from "@/components/CarouselDots";
+import ReviewsSection from "@/components/ReviewsSection";
 import { IMG } from "@/lib/assets";
+import { getWebPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Schilder Torhout, Lichtervelde & omstreken",
@@ -24,16 +27,39 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageSchema = getWebPageSchema({
+  path: "/",
+  name: "RB Schilderwerken — schilder Torhout, Lichtervelde & omstreken",
+  description:
+    "Vakkundige schilderwerken in Torhout, Lichtervelde, Zedelgem, Ichtegem, Koekelare, Kortemark en Oostkamp. Binnen, buiten, behang en renovatie.",
+});
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <Navbar active="home" />
 
       {/* HERO */}
-      <section className="sec-white hero-section">
+      <section className="hero-section hero-section-photo">
+        <div className="hero-section-bg" aria-hidden="true">
+          <Image
+            src="/assets/voor-na/buiten-zijgevel-na.jpeg"
+            alt=""
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+          />
+          <div className="hero-section-veil" />
+        </div>
         <div className="container hero-split">
-          <div className="hero-split-copy">
-            <span className="eyebrow">Schilder in Torhout, sinds 2008</span>
+          <div className="hero-split-copy on-dark">
+            <span className="eyebrow on-dark">Schilder in Torhout, sinds 2008</span>
             <h1 className="display">
               Schilderwerken
               <br />
@@ -41,7 +67,7 @@ export default function Home() {
               <br />
               voorop staat.
             </h1>
-            <p className="lede hero-split-lede">
+            <p className="lede">
               Binnen en buiten, nieuwbouw en renovatie. Actief in Torhout,
               Lichtervelde, Wingene en omstreken. Vakmanschap waar de afwerking
               telt.
@@ -51,13 +77,13 @@ export default function Home() {
                 Vraag gratis offerte
                 <span className="arrow" aria-hidden="true"></span>
               </Link>
-              <Link className="btn btn-outline-dark" href="/realisaties">
+              <Link className="btn btn-outline-light" href="/realisaties">
                 Bekijk realisaties
               </Link>
             </div>
           </div>
 
-          <div className="hero-accordion-wrap reveal d-1">
+          <div className="hero-accordion-wrap">
             <GalleryHero />
           </div>
         </div>
@@ -165,46 +191,90 @@ export default function Home() {
             className="services-grid"
           >
             <article className="service reveal">
-              <span className="srv-num">01</span>
-              <h3 className="srv-title">Binnen­schilderwerk</h3>
-              <p className="srv-body">
-                Muren, plafonds, deuren en kasten, strak afgeplakt en dampdicht
-                onderlegd, in twee tot drie lagen opgebouwd.
-              </p>
-              <span className="srv-tags">Latex, lak, plafonds, deuren</span>
+              <div className="srv-media">
+                <Image
+                  src={IMG.renovatie.living}
+                  alt="Binnenschilderwerk, strakke witte wanden"
+                  fill
+                  sizes="(max-width: 640px) 78vw, 25vw"
+                  style={{ objectFit: "cover", objectPosition: "center 30%" }}
+                />
+              </div>
+              <div className="srv-content">
+                <span className="srv-num">01</span>
+                <h3 className="srv-title">Binnen­schilderwerk</h3>
+                <p className="srv-body">
+                  Muren, plafonds, deuren en kasten, strak afgeplakt en dampdicht
+                  onderlegd, in twee tot drie lagen opgebouwd.
+                </p>
+                <span className="srv-tags">Latex, lak, plafonds, deuren</span>
+              </div>
             </article>
             <article className="service reveal d-1">
-              <span className="srv-num">02</span>
-              <h3 className="srv-title">Buiten­schilderwerk</h3>
-              <p className="srv-body">
-                Gevels, ramen, dakgoten en houtwerk. Volledig schuren, ontvetten
-                en weerbestendig afwerken.
-              </p>
-              <span className="srv-tags">
-                Gevels, ramen, houtwerk, dakgoten
-              </span>
+              <div className="srv-media">
+                <Image
+                  src="/assets/voor-na/buiten-zijgevel-na.jpeg"
+                  alt="Buitenschilderwerk, geschilderde zijgevel"
+                  fill
+                  sizes="(max-width: 640px) 78vw, 25vw"
+                  style={{ objectFit: "cover", objectPosition: "center 40%" }}
+                />
+              </div>
+              <div className="srv-content">
+                <span className="srv-num">02</span>
+                <h3 className="srv-title">Buiten­schilderwerk</h3>
+                <p className="srv-body">
+                  Gevels, ramen, dakgoten en houtwerk. Volledig schuren, ontvetten
+                  en weerbestendig afwerken.
+                </p>
+                <span className="srv-tags">
+                  Gevels, ramen, houtwerk, dakgoten
+                </span>
+              </div>
             </article>
             <article className="service reveal d-2">
-              <span className="srv-num">03</span>
-              <h3 className="srv-title">Behang­werken</h3>
-              <p className="srv-body">
-                Van structuurbehang tot fotobehang, met onzichtbare naden en
-                kaarsrechte patronen.
-              </p>
-              <span className="srv-tags">
-                Vlies, vinyl, fotobehang, texturen
-              </span>
+              <div className="srv-media">
+                <Image
+                  src={IMG.renovatie.slaapkamer}
+                  alt="Behangwerken en wandafwerking in slaapkamer"
+                  fill
+                  sizes="(max-width: 640px) 78vw, 25vw"
+                  style={{ objectFit: "cover", objectPosition: "center 35%" }}
+                />
+              </div>
+              <div className="srv-content">
+                <span className="srv-num">03</span>
+                <h3 className="srv-title">Behang­werken</h3>
+                <p className="srv-body">
+                  Van structuurbehang tot fotobehang, met onzichtbare naden en
+                  kaarsrechte patronen.
+                </p>
+                <span className="srv-tags">
+                  Vlies, vinyl, fotobehang, texturen
+                </span>
+              </div>
             </article>
             <article className="service reveal d-3">
-              <span className="srv-num">04</span>
-              <h3 className="srv-title">Renovatie &amp; nieuwbouw</h3>
-              <p className="srv-body">
-                Volledige afwerking voor aannemers en particulieren: plamuren,
-                schuren, schilderen, opgeleverd binnen planning.
-              </p>
-              <span className="srv-tags">
-                Plamuur, schuren, voorstrijken, oplevering
-              </span>
+              <div className="srv-media">
+                <Image
+                  src={IMG.renovatie.keuken}
+                  alt="Renovatie en nieuwbouw, keukenafwerking"
+                  fill
+                  sizes="(max-width: 640px) 78vw, 25vw"
+                  style={{ objectFit: "cover", objectPosition: "center 40%" }}
+                />
+              </div>
+              <div className="srv-content">
+                <span className="srv-num">04</span>
+                <h3 className="srv-title">Renovatie &amp; nieuwbouw</h3>
+                <p className="srv-body">
+                  Volledige afwerking voor aannemers en particulieren: plamuren,
+                  schuren, schilderen, opgeleverd binnen planning.
+                </p>
+                <span className="srv-tags">
+                  Plamuur, schuren, voorstrijken, oplevering
+                </span>
+              </div>
             </article>
           </div>
         </div>
@@ -305,54 +375,106 @@ export default function Home() {
               />
             </article>
           </div>
-          <CarouselDots targetId="work-grid" count={3} label="Realisaties navigatie" />
+          <CarouselDots
+            targetId="work-grid"
+            count={3}
+            label="Realisaties navigatie"
+          />
         </div>
       </section>
 
-      {/* OVER ONS */}
+      {/* OVER ONS — kort, gecentreerd */}
       <section className="sec-white">
         <div className="container">
-          <div className="sec-head">
-            <span className="eyebrow">Over RB Schilderwerken</span>
+          <div
+            className="sec-head"
+            style={{
+              textAlign: "center",
+              alignItems: "center",
+              marginInline: "auto",
+            }}
+          >
+            <span className="eyebrow" style={{ marginInline: "auto" }}>
+              Over RB Schilderwerken
+            </span>
             <h2 className="h2">
               De vakman achter
               <br />
               elke streek verf.
             </h2>
           </div>
+
           <div
             style={{
-              maxWidth: 760,
+              maxWidth: 560,
+              marginInline: "auto",
+              textAlign: "center",
               display: "flex",
               flexDirection: "column",
-              gap: 18,
+              alignItems: "center",
+              gap: 32,
             }}
           >
-            <p className="lede" style={{ margin: 0 }}>
-              RB Schilderwerken is het schildersbedrijf van zaakvoerder Rufino,
-              gevestigd in Torhout. Rufino schildert sinds 2008 en startte in
-              2025 zijn eigen zaak om dat vakmanschap rechtstreeks bij
-              particulieren en aannemers in Torhout, Lichtervelde, Wingene en
-              omstreken in te zetten. Geen tussenpersonen, geen onderaanneming:
-              u heeft één vast aanspreekpunt dat zelf mee op de werf staat.
+            <p
+              className="lede"
+              style={{
+                margin: 0,
+                maxWidth: "100%",
+                textAlign: "center",
+              }}
+            >
+              RB Schilderwerken is het schildersbedrijf van zaakvoerder Rufino
+              in Torhout. Hij schildert sinds 2008 en startte in 2025 zijn eigen
+              zaak: geen tussenpersonen, één aanspreekpunt dat zelf mee op de
+              werf staat. Binnen en buiten, behang en renovatie — met dezelfde
+              voorbereiding en nette oplevering.
             </p>
-            <p className="lede" style={{ margin: 0 }}>
-              Die ervaring zit vooral in de details die u pas later opmerkt: een
-              strak afgeplakte rand, een dampdicht onderwerk, een gevel die jaren
-              later nog altijd egaal kleurt. Elk project, van een enkele muur tot
-              een volledige renovatie, krijgt dezelfde voorbereiding, dezelfde
-              propere werf en dezelfde eerlijke nazorg. Zo weet u vooraf wat u
-              krijgt en blijft het resultaat ook na de oplevering kloppen.
-            </p>
-            <p className="lede" style={{ margin: 0 }}>
-              Meer info als{" "}
-              <Link href="/schilder-torhout">schilder in Torhout</Link> of{" "}
-              <Link href="/schilder-lichtervelde">schilder in Lichtervelde</Link>
-              .
-            </p>
+
+            <nav
+              aria-label="Regio's"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "10px 18px",
+                maxWidth: 520,
+              }}
+            >
+              {(
+                [
+                  ["/schilder-torhout", "Torhout"],
+                  ["/schilder-lichtervelde", "Lichtervelde"],
+                  ["/schilder-zedelgem", "Zedelgem"],
+                  ["/schilder-ichtegem", "Ichtegem"],
+                  ["/schilder-koekelare", "Koekelare"],
+                  ["/schilder-kortemark", "Kortemark"],
+                  ["/schilder-oostkamp", "Oostkamp"],
+                ] as const
+              ).map(([href, label]) => (
+                <Link
+                  key={href}
+                  href={href}
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "var(--ink-soft)",
+                    textDecoration: "none",
+                    borderBottom: "1px solid transparent",
+                    paddingBottom: 2,
+                    transition: "color 0.2s, border-color 0.2s",
+                  }}
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </section>
+
+      <ReviewsSection />
 
       {/* CTA BAND */}
       <section className="sec-dark on-dark">

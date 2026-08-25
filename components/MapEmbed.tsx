@@ -1,3 +1,6 @@
+import { BUSINESS } from "@/lib/business";
+import { MAPS_EMBED_URL, MAPS_URL } from "@/lib/schema";
+
 export default function MapEmbed() {
   return (
     <div
@@ -9,7 +12,7 @@ export default function MapEmbed() {
       }}
     >
       <iframe
-        src="https://maps.google.com/maps?q=Langepijpestraat+1,+8820+Torhout,+Belgi%C3%AB&t=&z=15&ie=UTF8&iwloc=&output=embed&hl=nl"
+        src={MAPS_EMBED_URL}
         width="100%"
         height="480"
         style={{ border: 0, display: "block" }}
@@ -49,11 +52,13 @@ export default function MapEmbed() {
         <span
           style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em" }}
         >
-          Langepijpestraat 1 bus v009
+          {BUSINESS.address.street} {BUSINESS.address.bus}
         </span>
-        <span style={{ fontSize: 14, opacity: 0.75 }}>8820 Torhout</span>
+        <span style={{ fontSize: 14, opacity: 0.75 }}>
+          {BUSINESS.address.postalCode} {BUSINESS.address.city}
+        </span>
         <a
-          href="https://maps.google.com/?q=Langepijpestraat+1,+8820+Torhout,+Belgi%C3%AB"
+          href={MAPS_URL}
           target="_blank"
           rel="noopener"
           style={{

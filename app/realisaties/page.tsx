@@ -5,8 +5,9 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import FilterGrid from "@/components/FilterGrid";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rbschilderwerken.be";
+import { getSiteUrl } from "@/lib/schema";
+
+const SITE_URL = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Realisaties, schilderwerk Torhout & omstreken",
@@ -98,11 +99,11 @@ export default function Realisaties() {
               We schuren, plamuren en strijken voor waar nodig, plakken alles
               zorgvuldig af en bouwen de verf op in meerdere lagen, zowel binnen
               als buiten. Bij veel projecten ziet u via de voor-en-na-beelden
-              meteen het resultaat. We werken voor particulieren én aannemers,
-              telkens met dezelfde aandacht voor detail, ongeacht de omvang van
-              de opdracht. Heeft u een gelijkaardig project in gedachten? Bekijk
-              de voorbeelden en vraag vrijblijvend een offerte aan; u krijgt
-              binnen 48&nbsp;uur een antwoord op maat van uw woning en budget.
+              meteen het resultaat — met caption: kamertype, streek en wat de
+              uitdaging was. We werken voor particulieren én aannemers, telkens
+              met dezelfde aandacht voor detail. Heeft u een gelijkaardig
+              project? Bekijk de voorbeelden en vraag vrijblijvend een offerte
+              aan; u krijgt binnen 48&nbsp;uur een antwoord op maat.
             </p>
           </div>
           <FilterGrid />
