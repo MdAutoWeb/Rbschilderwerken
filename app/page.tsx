@@ -55,8 +55,8 @@ export default function Home() {
             sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "center 35%" }}
           />
-          <div className="hero-section-veil" />
         </div>
+        <div className="hero-section-veil" aria-hidden="true" />
         <div className="container hero-split">
           <div className="hero-split-copy on-dark">
             <span className="eyebrow on-dark">Schilder in Torhout, sinds 2025</span>
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-accordion-wrap">
+          <div className="hero-accordion-wrap" aria-label="Realisatie gallery">
             <GalleryHero />
           </div>
         </div>
