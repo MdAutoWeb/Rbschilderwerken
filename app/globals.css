@@ -874,30 +874,28 @@ footer {
 }
 @media (max-width: 900px) {
   .hero-section {
-    padding-top: 28px;
-    padding-bottom: 32px;
+    padding-top: 36px;
+    padding-bottom: 40px;
+    min-height: min(78vh, 640px);
+    display: flex;
+    align-items: flex-end;
   }
   .hero-section-veil {
     background: linear-gradient(
       180deg,
-      rgba(17, 8, 0, 0.35) 0%,
-      rgba(17, 8, 0, 0.62) 55%,
-      rgba(17, 8, 0, 0.78) 100%
+      rgba(17, 8, 0, 0.25) 0%,
+      rgba(17, 8, 0, 0.55) 45%,
+      rgba(17, 8, 0, 0.88) 100%
     );
   }
   .hero-section-photo > .container.hero-split {
     padding-left: var(--pad-x);
     padding-right: var(--pad-x);
-    gap: 24px;
+    gap: 0;
+    width: 100%;
   }
   .hero-section-photo .hero-accordion-wrap {
-    margin-right: 0;
-    width: 100%;
-    max-width: 100%;
-    height: min(48vh, 400px);
-    border-radius: 24px;
-    clip-path: inset(0 round 24px);
-    justify-self: stretch;
+    display: none;
   }
   .hero-split {
     grid-template-columns: 1fr;
@@ -909,14 +907,15 @@ footer {
     width: 100%;
     align-items: flex-start;
     text-align: left;
-    gap: 16px;
+    gap: 18px;
+    padding-bottom: 8px;
   }
   .hero-split-copy .display {
-    font-size: clamp(34px, 9vw, 46px);
+    font-size: clamp(36px, 10vw, 48px);
     line-height: 1.02;
   }
   .hero-split-copy.on-dark .lede {
-    max-width: none;
+    max-width: 36ch;
     font-size: 16px;
   }
   .hero-split-caption {
@@ -926,6 +925,7 @@ footer {
     justify-content: flex-start;
     width: 100%;
     gap: 10px;
+    flex-wrap: wrap;
   }
   .hero-btns .btn {
     padding-left: 16px;
