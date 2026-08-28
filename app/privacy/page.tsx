@@ -175,9 +175,11 @@ export default function PrivacyPage() {
 
       <h2>10. Cookies en Google Maps</h2>
       <p>
-        Wij gebruiken geen trackingcookies op deze website. Op de contactpagina tonen wij
-        een ingesloten <strong>Google Maps</strong>-kaart; Google kan daarbij cookies en
-        technische gegevens (zoals uw IP-adres) verwerken. Zie ons{" "}
+        Wij gebruiken geen trackingcookies zonder uw toestemming. Bij uw eerste bezoek kunt
+        u via onze cookiebanner kiezen of optionele cookies (zoals Google Maps en
+        analytics) geplaatst mogen worden. Op de contactpagina laadt een ingesloten{" "}
+        <strong>Google Maps</strong>-kaart enkel na acceptatie; Google kan daarbij cookies
+        en technische gegevens (zoals uw IP-adres) verwerken. Zie ons{" "}
         <Link href="/cookies">cookiebeleid</Link> voor details en uw mogelijkheden.
       </p>
 

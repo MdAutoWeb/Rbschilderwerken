@@ -12,7 +12,7 @@ const SITE_URL = getSiteUrl();
 export const metadata: Metadata = {
   title: "Realisaties, schilderwerk Torhout & omstreken",
   description:
-    "Bekijk onze realisaties: badkamer, living, slaapkamer, keuken en gevels. Vakkundig schilderwerk en renovatie door RB Schilderwerken in Torhout, Lichtervelde en omstreken.",
+    "Bekijk onze realisaties: badkamer, living, trap, keuken en gevels. Vakkundig schilderwerk en renovatie door RB Schilderwerken in Torhout, Lichtervelde en omstreken.",
   alternates: {
     canonical: "/realisaties",
   },

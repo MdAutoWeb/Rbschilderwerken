@@ -237,6 +237,42 @@ function buildProjects(): Project[] {
       desc: "Living afgewerkt in een warme, egale tint met strak afgelijnde plafond- en muurranden.",
     },
     {
+      id: "trap",
+      cats: ["renovatie", "binnen"],
+      span: "span-7",
+      variant: "wide",
+      visual: (
+        <VoorNa
+          voor={IMG.voorNa.trapVoor}
+          na={IMG.voorNa.trapNa}
+          label="Trap"
+          voorPosition="center 55%"
+          naPosition="center 45%"
+        />
+      ),
+      title: "Trap volledig\ngerenoveerd",
+      caption: "Trap · Torhout e.o. · Versleten treden en verouderde afwerking",
+      desc: "Houten trap geschuurd, gerepareerd en opnieuw afgewerkt: van doffe, beschadigde treden naar een strakke, duurzame laklaag.",
+    },
+    {
+      id: "trap-detail",
+      cats: ["renovatie", "binnen"],
+      span: "span-5",
+      variant: "tall",
+      visual: (
+        <VoorNa
+          voor={IMG.voorNa.trapVoor2}
+          na={IMG.voorNa.trapNa2}
+          label="Trap detail"
+          voorPosition="center 50%"
+          naPosition="center 50%"
+        />
+      ),
+      title: "Trap & leuning\nvoor & na",
+      caption: "Trap · West-Vlaanderen · Leuning en treden opnieuw afgewerkt",
+      desc: "Detail van dezelfde traprenovatie: leuning, spil en treden volledig voorbereid en opnieuw gelakt voor een egale afwerking.",
+    },
+    {
       id: "traphal",
       cats: ["renovatie", "binnen"],
       span: "span-7",

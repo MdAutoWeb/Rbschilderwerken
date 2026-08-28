@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
+import CookieBanner from "@/components/CookieBanner";
 import RevealInit from "@/components/RevealInit";
 import {
   getLocalBusinessSchema,
@@ -85,6 +87,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <RevealInit />
+        <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );

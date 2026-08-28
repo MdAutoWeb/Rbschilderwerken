@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 import { BUSINESS } from "@/lib/business";
 
 export default function Footer() {
@@ -68,7 +69,9 @@ export default function Footer() {
           <span className="footer-legal">
             <Link href="/privacy">Privacy</Link>
             <span aria-hidden="true">, </span>
-            <Link href="/cookies">Cookies</Link>
+            <Link href="/cookies">Cookiebeleid</Link>
+            <span aria-hidden="true">, </span>
+            <CookieSettingsLink />
             <span aria-hidden="true">, </span>
             {BUSINESS.vatNumber}
           </span>

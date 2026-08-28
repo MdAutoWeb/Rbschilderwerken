@@ -8,6 +8,7 @@ import BeforeAfter from "@/components/BeforeAfter";
 import ProjectImage from "@/components/ProjectImage";
 import GalleryHero from "@/components/GalleryHero";
 import CarouselDots from "@/components/CarouselDots";
+import MarqueeBand from "@/components/MarqueeBand";
 import ReviewsSection from "@/components/ReviewsSection";
 import { IMG } from "@/lib/assets";
 import { getWebPageSchema } from "@/lib/schema";
@@ -53,7 +54,7 @@ export default function Home() {
             priority
             fetchPriority="high"
             sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "center 35%" }}
+            className="hero-bg-img"
           />
         </div>
         <div className="hero-section-veil" aria-hidden="true" />
@@ -89,82 +90,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS STRIP */}
-      <section className="sec-dark on-dark" style={{ padding: 0 }}>
-        <div
-          className="container"
-          style={{ paddingTop: 56, paddingBottom: 56 }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: 24,
-              alignItems: "center",
-            }}
-            className="stats-grid"
-          >
-            <div className="stat reveal">
-              <div
-                style={{
-                  fontSize: "clamp(40px, 4.5vw, 64px)",
-                  fontWeight: 600,
-                  letterSpacing: "-0.04em",
-                  color: "var(--gold-light)",
-                  lineHeight: 1,
-                }}
-              >
-                2008
-              </div>
-            </div>
-            <div className="stat reveal d-1">
-              <div
-                style={{
-                  fontSize: "clamp(20px, 2vw, 26px)",
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  color: "var(--cream)",
-                  lineHeight: 1.1,
-                }}
-              >
-                Binnen
-                <br />
-                &amp; buiten
-              </div>
-            </div>
-            <div className="stat reveal d-2">
-              <div
-                style={{
-                  fontSize: "clamp(20px, 2vw, 26px)",
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  color: "var(--cream)",
-                  lineHeight: 1.1,
-                }}
-              >
-                Nieuwbouw
-                <br />
-                &amp; renovatie
-              </div>
-            </div>
-            <div className="stat reveal d-3">
-              <div
-                style={{
-                  fontSize: "clamp(20px, 2vw, 26px)",
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  color: "var(--gold-light)",
-                  lineHeight: 1.1,
-                }}
-              >
-                Torhout
-                <br />
-                &amp; omstreken
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MarqueeBand />
 
       {/* DIENSTEN */}
       <section className="sec-white">

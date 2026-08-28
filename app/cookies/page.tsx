@@ -17,7 +17,7 @@ export default function CookiesPage() {
   return (
     <LegalPageShell
       title="Cookiebeleid"
-      subtitle="Transparant over welke cookies wij gebruiken en welke niet. Geen cookiepopup: enkel uitleg op deze pagina."
+      subtitle="Transparant over welke cookies wij gebruiken en welke niet. U kunt uw keuze altijd wijzigen via Cookievoorkeuren in de footer."
       updated="25 mei 2026"
     >
       <h2>1. Wat zijn cookies?</h2>
@@ -35,10 +35,10 @@ export default function CookiesPage() {
         trackers of analytics (zoals Google Analytics) die u over websites volgen.
       </p>
       <p>
-        Omdat wij enkel strikt noodzakelijke en functionele cookies gebruiken, tonen wij{" "}
-        <strong>geen cookiepopup</strong>. Alle informatie staat op deze pagina. Bij
-        wijzigingen (bv. toevoegen van analytics) passen wij dit beleid aan en vragen wij
-        indien nodig vooraf uw toestemming.
+        Bij uw eerste bezoek tonen wij een <strong>cookiebanner</strong> onderaan het
+        scherm. Daarin kunt u optionele cookies (zoals Google Maps op de contactpagina en
+        eventuele analytics) accepteren of weigeren. U kunt uw keuze later opnieuw openen
+        via <strong>Cookievoorkeuren</strong> in de footer.
       </p>
 
       <h2>3. Cookies op onze eigen website</h2>
@@ -70,9 +70,10 @@ export default function CookiesPage() {
 
       <h2>4. Google Maps (contactpagina)</h2>
       <p>
-        Op onze <Link href="/contact">contactpagina</Link> tonen wij een ingesloten kaart
-        via <strong>Google Maps</strong> (dienst van Google Ireland Limited / Google LLC).
-        Wanneer u die pagina bezoekt en de kaart laadt, kan Google:
+        Op onze <Link href="/contact">contactpagina</Link> kunnen wij een ingesloten kaart
+        tonen via <strong>Google Maps</strong> (dienst van Google Ireland Limited /
+        Google LLC). Die kaart laadt <strong>enkel nadat u cookies heeft geaccepteerd</strong>{" "}
+        in onze cookiebanner. Wanneer de kaart actief is, kan Google:
       </p>
       <ul>
         <li>

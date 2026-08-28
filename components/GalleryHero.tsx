@@ -63,7 +63,7 @@ export default function GalleryHero() {
                 fill
                 priority={i === 0}
                 fetchPriority={i === 0 ? "high" : "auto"}
-                sizes="(max-width: 640px) 92vw, 50vw"
+                sizes="(max-width: 1099px) 340px, 50vw"
                 style={{ objectFit: "cover", objectPosition: panel.pos }}
               />
             </div>
