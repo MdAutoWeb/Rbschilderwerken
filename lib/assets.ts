@@ -31,6 +31,7 @@ export const IMG = {
     buitenGevelNa: "/assets/voor-na/buiten-gevel-na.jpeg",
     buitenZijgevelVoor: "/assets/buiten/zijgevel-voor.jpeg",
     buitenZijgevelNa: "/assets/buiten/zijgevel-na.jpeg",
+    heroGevel: "/assets/voor-na/huis-zonder-logo.jpeg",
     trapVoor: "/assets/voor-na/trap-voor.jpeg",
     trapNa: "/assets/voor-na/trap-na.jpeg",
     trapVoor2: "/assets/voor-na/trap-voor2.jpeg",

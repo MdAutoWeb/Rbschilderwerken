@@ -48,7 +48,7 @@ export default function Home() {
       <section className="hero-section hero-section-photo">
         <div className="hero-section-bg" aria-hidden="true">
           <Image
-            src="/assets/voor-na/buiten-zijgevel-na.jpeg"
+            src={IMG.voorNa.heroGevel}
             alt=""
             fill
             priority
